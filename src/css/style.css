@@ -22,6 +22,9 @@ fieldset{
 legend{
     display: none;
 }
+p{
+    margin: 0;
+}
 .modal{
     display: none;
     position: fixed;
@@ -72,6 +75,19 @@ input{
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     color: var(--fontInput);
+}
+select{
+    width: 50%;
+    height: 30px;
+    font-size: 1.2rem;
+}
+.selectSection label{
+    color: var(--fontInput);
+    font-size: 1.2rem;
+}
+.selectSection input{
+    width: auto;
+    height: 15px;
 }
 .footer-modal button{
     margin-left: 5px;

@@ -59,7 +59,7 @@
                     <div class="linha placa">APK4D88</div>
                     <div class="linha hora">09:40</div>
                     <div class="linha funcoes">
-                        <button>Finalizar</button>
+                        <button id="openModalFinish">Finalizar</button>
                         <button>Ed</button>
                         <button>Pr</button>
                     </div>
@@ -435,40 +435,126 @@
             </div>
         </div>
         <button id="openModalAddCar" class="adicionar">add</button>
-            <div id="modalAddCar" class="modal">
-                <div class="conteudo-modal">
-                    <div class="header-modal">
-                        <h3>Adicionar Veículo</h3>
-                        <span class="close">&times</span>
-                    </div>
-                    <div class="body-modal">
-                        <form id="form1">
-                            <fieldset>
-                                <legend>Cadastro Veículo</legend>
-                                <label for="marca">Marca:</label>
+        <div id="modalAddCar" class="modal">
+            <div class="conteudo-modal">
+                <div class="header-modal">
+                    <h3>Adicionar Veículo</h3>
+                    <span class="close">&times</span>
+                </div>
+                <div class="body-modal">
+                    <form id="form1">
+                        <fieldset>
+                            <legend>Cadastro Veículo</legend>
+                            <label for="marca">Marca:</label>
+                            <br>
+                            <input type="text" name="marca" id="marca">
+                            <br>
+                            <label for="modelo">Modelo:</label>
+                            <br>
+                            <input type="text" name="modelo" id="modelo">
+                            <br>
+                            <label for="cor">Cor:</label>
+                            <br>
+                            <input type="text" name="cor" id="cor">
+                            <br>
+                            <label for="placa">Placa:</label>
+                            <br>
+                            <input type="text" name="placa" id="placa">
+                            <br>
+                            <div class="selectSection">
+                                <p>Tipo:</p>
+                                <input type="radio" name="timeType" id="hour" value="hour" class="radio">
+                                <label for="hour">Hora</label>
                                 <br>
-                                <input type="text" name="marca" id="marca">
-                                <br>
-                                <label for="modelo">Modelo:</label>
-                                <br>
-                                <input type="text" name="modelo" id="modelo">
-                                <br>
-                                <label for="cor">Cor:</label>
-                                <br>
-                                <input type="text" name="cor" id="cor">
-                                <br>
-                                <label for="placa">Placa:</label>
-                                <br>
-                                <input type="text" name="placa" id="placa">
-                            </fieldset>
-                        </form>
-                    </div>
-                    <div class="footer-modal">
-                        <button type="submit" form="form1" onclick="envia()" class="adicionarBtn">Adicionar</button>
-                        <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn">Cancelar</button>
-                    </div>
+                                <input type="radio" name="timeType" id="period" value="period" class="radio">
+                                <label for="period">Período</label>
+                            </div>
+                            
+
+                            
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="footer-modal">
+                    <button type="submit" form="form1" onclick="envia()" class="adicionarBtn">Adicionar</button>
+                    <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn">Cancelar</button>
                 </div>
             </div>
+        </div>
+        <div id="modalFinishTime" class="modal">
+            <div class="conteudo-modal">
+                <div class="header-modal">
+                    <h3>Finalizar Tempo</h3>
+                    <span class="close">&times</span>
+                </div>
+                <div class="body-modal">
+                    <form id="form2">
+                        <fieldset>
+                            <legend>Finalizar Tempo</legend>
+                            <label for="marca">Marca:</label>
+                            <br>
+                            <input type="text" name="marca" id="marca" disabled>
+                            <br>
+                            <label for="modelo">Modelo:</label>
+                            <br>
+                            <input type="text" name="modelo" id="modelo" disabled>
+                            <br>
+                            <label for="cor">Cor:</label>
+                            <br>
+                            <input type="text" name="cor" id="cor" disabled>
+                            <br>
+                            <label for="placa">Placa:</label>
+                            <br>
+                            <input type="text" name="placa" id="placa" disabled>
+                            <br>
+                            <div class="selectSection">
+                                <p>Tipo:</p>
+                                <input type="radio" name="timeType" id="hour" value="hour" class="radio" disabled>
+                                <label for="hour">Hora</label>
+                                <br>
+                                <input type="radio" name="timeType" id="period" value="period" class="radio" disabled>
+                                <label for="period">Período</label>
+                                <p>Adicional:</p>
+                                <input type="checkbox" name="lavagem" id="lavagem">
+                                <label for="lavagem">Lava-rápido</label>
+                                <input type="checkbox" name="hInterna" id="hInterna">
+                                <label for="hInterna">Higienização Interna</label>
+                                <br>
+                                <p>Convênio:</p>
+                                <select name="convenio" id="convenio">
+                                    <option value="0">Nenhum</option>
+                                    <option value="1">Hospital</option>
+                                    <option value="2">Clínica</option>
+                                    <option value="3">Loja</option>
+                                    <option value="4">Farmácia</option>                                   
+                                </select>
+                                <p>Desconto:</p>
+                                <select name="desconto" id="desconto">
+                                    <option value="0">Nenhum</option>
+                                    <option value="1">5%</option>
+                                    <option value="2">10%</option>
+                                    <option value="3">15%</option>
+                                    <option value="4">20%</option>                                   
+                                </select>
+
+                                <p>Método de Pagamento:</p>
+                                <input type="radio" name="payType" id="card" value="card" class="radio">
+                                <label for="card">Cartão</label>
+                                <input type="radio" name="payType" id="money" value="money" class="radio">
+                                <label for="money">Dinheiro</label>
+                                <input type="radio" name="payType" id="pix" value="pix" class="radio">
+                                <label for="pix">Pix</label>
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="footer-modal">
+                    <button type="submit" form="form2" onclick="envia()" class="adicionarBtn">Finalizar</button>
+                    <button id="cancelModalFinshTime" form="form2" type="reset" class="cancelarBtn">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

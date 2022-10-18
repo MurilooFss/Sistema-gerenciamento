@@ -3,6 +3,10 @@ window.onload = function(){
     var modalAddCar = document.getElementById("modalAddCar");
     var spanCloseModal = document.getElementsByClassName("close")[0];
     var cancelModalAddCar = document.getElementById("cancelModalAddCar");
+    var openModalFinish = document.getElementById("openModalFinish");
+    var modalFinishTime = document.getElementById("modalFinishTime");
+    var spanCloseModalFinish = document.getElementsByClassName("close")[1];
+    var cancelModalFinshTime = document.getElementById("cancelModalFinshTime");
 
     openModalAddCar.onclick = function(){
         modalAddCar.style.display = "block";
@@ -13,14 +17,27 @@ window.onload = function(){
     cancelModalAddCar.onclick = function(){
         modalAddCar.style.display = "none";
     }
+    openModalFinish.onclick = function(){
+        modalFinishTime.style.display = "block";
+    }
+    spanCloseModalFinish.onclick = function(){
+        modalFinishTime.style.display = "none";
+    }
+    cancelModalFinshTime.onclick = function(){
+        modalFinishTime.style.display = "none";
+    }
     window.onclick = function(event){
         if(event.target == modalAddCar){
             modalAddCar.style.display = "none";
+        }
+        if(event.target == modalFinishTime){
+            modalFinishTime.style.display = "none";
         }
     }
     window.onkeydown = function(event){
         if (event.key == 'Escape'){
             cancelModalAddCar.click();
+            cancelModalFinshTime.click();
         }
     }
 };
