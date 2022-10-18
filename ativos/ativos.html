@@ -10,7 +10,7 @@
     
 </head>
 <body>
-    <script src="../src/js/script.js">
+    <script src="../src/js/ativos.js">
     </script>
     <header>
         <div class="logo">
@@ -33,7 +33,7 @@
                 Vagas disponíveis: 10
             </p></div></a>
             <a href=""><div class="menu-item"><p>
-                Hora 10:07
+                Hora: <span id="horaAtual"></span>:<span id="minAtual"></span>
             </p></div></a>
         </div>
     </header>
@@ -432,17 +432,43 @@
                 </div>
             </div>
         -->
-            </div>  
-        <div class="adicionar">
-            <button class="btn">Add</button>
-        </div>
-        <div class="modal">
-            <div class="cadastro-veiculo">
-                <span class="close">&times;</span>
-                <p>cadastro</p>
             </div>
-            
         </div>
+        <button id="openModalAddCar" class="adicionar">add</button>
+            <div id="modalAddCar" class="modal">
+                <div class="conteudo-modal">
+                    <div class="header-modal">
+                        <h3>Adicionar Veículo</h3>
+                        <span class="close">&times</span>
+                    </div>
+                    <div class="body-modal">
+                        <form id="form1">
+                            <fieldset>
+                                <legend>Cadastro Veículo</legend>
+                                <label for="marca">Marca:</label>
+                                <br>
+                                <input type="text" name="marca" id="marca">
+                                <br>
+                                <label for="modelo">Modelo:</label>
+                                <br>
+                                <input type="text" name="modelo" id="modelo">
+                                <br>
+                                <label for="cor">Cor:</label>
+                                <br>
+                                <input type="text" name="cor" id="cor">
+                                <br>
+                                <label for="placa">Placa:</label>
+                                <br>
+                                <input type="text" name="placa" id="placa">
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="footer-modal">
+                        <button type="submit" form="form1" onclick="envia()" class="adicionarBtn">Adicionar</button>
+                        <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn">Cancelar</button>
+                    </div>
+                </div>
+            </div>
     </main>
 </body>
 </html>
