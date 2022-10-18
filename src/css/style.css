@@ -45,6 +45,8 @@ p{
     border-radius: 10px;
     cursor: default;
     font-size: 1.4rem;
+    max-height: 70vh;
+    overflow: auto;
 }
 .header-modal{
     display: flex;
