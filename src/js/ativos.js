@@ -41,10 +41,6 @@ window.onload = function(){
         }
     }
 };
-function envia(){
-    console.log('oi');
-}
-
 function relogio(){
     var data = new Date();
     var hora = data.getHours();
