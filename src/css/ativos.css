@@ -1,4 +1,4 @@
-header{
+header {
     background-color: #aaa;
     display: flex;
     justify-content: space-between;
@@ -6,27 +6,32 @@ header{
     padding: 10px 25px;
 
 }
+
 div.tabela-dados::-webkit-scrollbar {
     width: 5px;
     background-color: #ccc;
     color: #222;
 }
+
 div.tabela-dados::-webkit-scrollbar-thumb {
     width: 5px;
     background-color: #222;
     color: #222;
 }
-.logo img{
+
+.logo img {
     height: 80px;
     float: left;
 }
-.main-menu{
+
+.main-menu {
     width: 85%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.tabela-ativos{
+
+.tabela-ativos {
     background-color: #ddd;
     min-height: 50vh;
     max-height: 75vh;
@@ -35,33 +40,41 @@ div.tabela-dados::-webkit-scrollbar-thumb {
     text-align: center;
     border: 2px solid #222;
 }
-.colunas-tabela, .linhas-tabela{
+
+.colunas-tabela,
+.linhas-tabela {
     display: flex;
     align-items: center;
     margin: auto;
     justify-content: center;
 
 }
-.col, .linha{
-    width: 15%;
+
+.col,
+.linha {
+    width: 10%;
     border: 1px solid #222;
     border-left: none;
     height: 25px;
     background-color: #fff;
 }
-.tabela-dados{
+
+.tabela-dados {
     overflow-y: auto;
     max-height: 50vh;
     margin-bottom: 30px;
     scrollbar-width: none;
 }
-.col{
+
+.col {
     font-weight: 700;
 }
-.marca{
+
+.id {
     border-left: 1px solid #222;
 }
-.adicionar{
+
+.adicionar {
     position: fixed;
     left: 95%;
     bottom: 8%;

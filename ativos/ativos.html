@@ -18,6 +18,7 @@
     <script src="../src/js/finish.js"></script>
     <script src="../src/js/edit.js"></script>
     <script src="../src/js/relogio.js"></script>
+    <script src="../src/js/remove.js"></script>
 </head>
 
 <body>
@@ -248,6 +249,7 @@
                             <br>
                             <input type="text" name="marca" id="marcaEdit">
                             <br>
+                            <input type="text" name="idEdit" id="idEdit" disabled style="display: none;">
                             <label for="modelo">Modelo:</label>
                             <br>
                             <input type="text" name="modelo" id="modeloEdit">
@@ -283,10 +285,28 @@
                     </form>
                 </div>
                 <div class="footer-modal">
-                    <button form="form3" onclick="salvarEdit(marca, modelo, cor, placa, timeType, size)"
-                        class="adicionarBtn">Adicionar</button>
+                    <button form="form3" onclick="salvarEdit(marca, modelo, cor, placa, timeType, size, idEdit)"
+                        class="adicionarBtn">Salvar</button>
+                    <button onclick="abreConfirma(idEdit)" class="cancelarBtn">Excluir</button>
                     <button id="cancelModalEditCar" form="form3" type="reset" class="cancelarBtn"
                         onclick="cancela()">Cancelar</button>
+                </div>
+            </div>
+
+        </div>
+        <div id="modalConfirma" class="modal">
+            <div class="conteudo-modal modal-confirma">
+                <div class="header-modal">
+                    <h3>Confirma</h3>
+                    <span class="close" onclick="cancelaConfirma()">&times</span>
+                </div>
+                <div class="body-modal">
+                    <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+                    <p class="pConfirma">Deseja excluir esse Registro?</p>
+                </div>
+                <div class="footer-modal">
+                    <button onclick="excluir(idConfirma)" class="cancelarBtn">Excluir</button>
+                    <button id="cancelModalEditCar" class="cancelarBtn" onclick="cancelaConfirma()">Cancelar</button>
                 </div>
             </div>
         </div>

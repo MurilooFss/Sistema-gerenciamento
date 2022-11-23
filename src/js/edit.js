@@ -1,7 +1,8 @@
-function edit(id) {
+function edit(idReq) {
     modalEditCar.style.display = "block"
-    axios.get(`${url}${id}`)
+    axios.get(`${url}${idReq}`)
         .then((response) => {
+            idEdit.value = response.data.id
             marcaEdit.value = response.data.marca
             modeloEdit.value = response.data.modelo
             corEdit.value = response.data.cor
@@ -26,8 +27,7 @@ function edit(id) {
         })
         .catch((e) => console.error(e))
 }
-function salvarEdit(marca, modelo, cor, placa, timeType, size) {
-    const id = 1
+function salvarEdit(marca, modelo, cor, placa, timeType, size, id) {
     const updatedCar = {
         marca: marca.value.toUpperCase(),
         modelo: modelo.value.toUpperCase(),
@@ -36,5 +36,5 @@ function salvarEdit(marca, modelo, cor, placa, timeType, size) {
         tipoCobranca: timeType.value.toUpperCase(),
         tamanhoCarro: size.value.toUpperCase(),
     }
-    axios.put(`${url}${id}`, updatedCar).then((response) => (console.log(response.data))).catch((e) => console.log(e))
+    axios.put(`${url}${id.value}`, updatedCar).then((response) => (console.log(response.data))).catch((e) => console.log(e))
 }   

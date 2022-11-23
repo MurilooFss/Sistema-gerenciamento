@@ -1,42 +1,53 @@
-:root{
+:root {
     --fontInput: #272727;
     --confirmColor: #1a961a;
     --cancelColor: #910d0d;
 }
-body{
+
+body {
     font-family: 'Poppins', sans-serif;
     background-color: #ccc;
     margin: 0;
 }
-a{
+
+a {
     text-decoration: none;
     color: black
 }
-h3{
+
+h3 {
     margin: 0 0 0 25px;
 
 }
-fieldset{
+
+fieldset {
     border: none;
 }
-legend{
+
+legend {
     display: none;
 }
-p{
+
+p {
     margin: 0;
 }
-.modal{
+
+
+
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     left: 0;
     top: 0;
     cursor: pointer;
 }
-.conteudo-modal{
+
+
+.conteudo-modal {
     background-color: #fefefe;
     margin: 5% auto;
     padding: 20px;
@@ -48,50 +59,77 @@ p{
     max-height: 70vh;
     overflow: auto;
 }
-.header-modal{
+
+.modal-confirma {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 10px;
+    cursor: default;
+    font-size: 1.4rem;
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.pConfirma {
+    margin: 2vh 0;
+}
+
+.header-modal {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #888;
     padding: 0 10px;
 }
-.footer-modal{
+
+.footer-modal {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-.close:hover, .close:focus{
+
+.close:hover,
+.close:focus {
     color: black;
     cursor: pointer;
     text-decoration: none;
 }
-input{
+
+input {
     width: 100%;
     height: 30px;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     color: var(--fontInput);
 }
-select{
+
+select {
     width: 50%;
     height: 30px;
     font-size: 1.2rem;
 }
-.selectSection label{
+
+.selectSection label {
     color: var(--fontInput);
     font-size: 1.2rem;
 }
-.selectSection input{
+
+.selectSection input {
     width: auto;
     height: 15px;
 }
-.footer-modal button{
+
+.footer-modal button {
     margin-left: 5px;
     height: 40px;
     width: 20%;
@@ -100,9 +138,11 @@ select{
     border-radius: 5px;
     cursor: pointer;
 }
-.adicionarBtn{
+
+.adicionarBtn {
     background-color: var(--confirmColor);
 }
-.cancelarBtn{
+
+.cancelarBtn {
     background-color: var(--cancelColor);
 }

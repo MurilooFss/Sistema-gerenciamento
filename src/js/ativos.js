@@ -25,11 +25,16 @@ function fecha() {
     modalAddCar.style.display = "none";
     modalFinishTime.style.display = "none";
     modalEditCar.style.display = "none";
+    modalConfirma.style.display = "none";
 }
 function cancela() {
     modalAddCar.style.display = "none";
     modalFinishTime.style.display = "none";
     modalEditCar.style.display = 'none'
+    modalConfirma.style.display = "none";
+}
+function cancelaConfirma() {
+    modalConfirma.style.display = "none";
 }
 
 
