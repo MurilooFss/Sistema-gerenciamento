@@ -1,4 +1,4 @@
-const url = ('http://localhost:3000')
+const url = ('http://localhost:3000/')
 
 let table = document.getElementsByClassName('tabela-dados')[0]
 
@@ -29,7 +29,7 @@ function loadPage(url) {
                                 <div class="linha hora">${time}</div>
                                 <div class="linha funcoes">
                                     <button class="openModalFinish" onclick="finish(${iterator.id})">Finalizar</button>
-                                    <button>Ed</button>
+                                    <button onclick="edit(${iterator.id})" onclick = "editId(${iterator.id})">Ed</button>
                                     <button>Pr</button>
                                 </div>
                             `

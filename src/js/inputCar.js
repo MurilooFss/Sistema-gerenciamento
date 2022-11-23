@@ -1,14 +1,16 @@
+function add() {
+    modalAddCar.style.display = "block";
+}
 function envia(marca, modelo, cor, placa, timeType, size) {
-    const url = 'http://localhost:3000/'
     const date = new Date().getTime()
-
+    modalAddCar.style.display = "block";
     const insertCar = {
-        marca: marca.value,
-        modelo: modelo.value,
-        cor: cor.value,
-        placa: placa.value,
-        tipoCobranca: timeType.value,
-        tamanhoCarro: size.value,
+        marca: marca.value.toUpperCase(),
+        modelo: modelo.value.toUpperCase(),
+        cor: cor.value.toUpperCase(),
+        placa: placa.value.toUpperCase(),
+        tipoCobranca: timeType.value.toUpperCase(),
+        tamanhoCarro: size.value.toUpperCase(),
         horaEntrada: date
     }
 

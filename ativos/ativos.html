@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/ativos.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <script src="../src/js/loadPage.js">
     </script>
     <script src="../src/js/inputCar.js">
@@ -17,6 +16,8 @@
     <script src="../src/js/ativos.js">
     </script>
     <script src="../src/js/finish.js"></script>
+    <script src="../src/js/edit.js"></script>
+    <script src="../src/js/relogio.js"></script>
 </head>
 
 <body>
@@ -89,12 +90,12 @@
             <div class="tabela-dados">
             </div>
         </div>
-        <button id="openModalAddCar" class="adicionar">add</button>
+        <button id="openModalAddCar" class="adicionar" onclick="add()">add</button>
         <div id="modalAddCar" class="modal">
             <div class="conteudo-modal">
                 <div class="header-modal">
                     <h3>Adicionar Veículo</h3>
-                    <span class="close">&times</span>
+                    <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
                     <form id="form1">
@@ -141,7 +142,8 @@
                 <div class="footer-modal">
                     <button form="form1" onclick="envia(marca, modelo, cor, placa, timeType, size)"
                         class="adicionarBtn">Adicionar</button>
-                    <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn">Cancelar</button>
+                    <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn"
+                        onclick="cancela()">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -149,7 +151,7 @@
             <div class="conteudo-modal">
                 <div class="header-modal">
                     <h3>Finalizar Tempo</h3>
-                    <span class="close">&times</span>
+                    <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
                     <form id="form2">
@@ -179,6 +181,18 @@
                                 <input type="radio" name="timeType" id="periodFinish" value="period" class="radio"
                                     disabled>
                                 <label for="period">Período</label>
+                            </div>
+                            <div class="selectSection">
+                                <p>Tamanho:</p>
+                                <input type="radio" name="size" id="padraoFinish" value="Padrão" class="radio" disabled>
+                                <label for="Padrão">Padrão</label>
+                                <br>
+                                <input type="radio" name="size" id="grandeFinish" value="Grande" class="radio" disabled>
+                                <label for="Grande">Grande</label>
+                                <br>
+                                <input type="radio" name="size" id="motoFinish" value="Moto" class="radio" disabled>
+                                <label for="Moto">Moto</label>
+
                                 <p>Adicional:</p>
                                 <input type="checkbox" name="lavagem" id="lavagem">
                                 <label for="lavagem">Lava-rápido</label>
@@ -215,7 +229,64 @@
                 </div>
                 <div class="footer-modal">
                     <button form="form2" class="adicionarBtn">Finalizar</button>
-                    <button id="cancelModalFinshTime" form="form2" type="reset" class="cancelarBtn">Cancelar</button>
+                    <button id="cancelModalFinishTime" form="form2" type="reset" class="cancelarBtn"
+                        onclick="cancela()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div id="modalEditCar" class="modal">
+            <div class="conteudo-modal">
+                <div class="header-modal">
+                    <h3>Editar Veículo</h3>
+                    <span class="close" onclick="fecha()">&times</span>
+                </div>
+                <div class="body-modal">
+                    <form id="form3">
+                        <fieldset>
+                            <legend>Editar Veículo</legend>
+                            <label for="marca">Marca:</label>
+                            <br>
+                            <input type="text" name="marca" id="marcaEdit">
+                            <br>
+                            <label for="modelo">Modelo:</label>
+                            <br>
+                            <input type="text" name="modelo" id="modeloEdit">
+                            <br>
+                            <label for="cor">Cor:</label>
+                            <br>
+                            <input type="text" name="cor" id="corEdit">
+                            <br>
+                            <label for="placa">Placa:</label>
+                            <br>
+                            <input type="text" name="placa" id="placaEdit">
+                            <br>
+                            <div class="selectSection">
+                                <p>Tipo:</p>
+                                <input type="radio" name="timeType" id="horaEdit" value="Hora" class="radio">
+                                <label for="hora">Hora</label>
+                                <br>
+                                <input type="radio" name="timeType" id="periodoEdit" value="Período" class="radio">
+                                <label for="periodo">Período</label>
+                            </div>
+                            <div class="selectSection">
+                                <p>Tamanho:</p>
+                                <input type="radio" name="size" id="padraoEdit" value="Padrão" class="radio">
+                                <label for="padraoEdit">Padrão</label>
+                                <br>
+                                <input type="radio" name="size" id="grandeEdit" value="Grande" class="radio">
+                                <label for="grande">Grande</label>
+                                <br>
+                                <input type="radio" name="size" id="motoEdit" value="Moto" class="radio">
+                                <label for="moto">Moto</label>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="footer-modal">
+                    <button form="form3" onclick="salvarEdit(marca, modelo, cor, placa, timeType, size)"
+                        class="adicionarBtn">Adicionar</button>
+                    <button id="cancelModalEditCar" form="form3" type="reset" class="cancelarBtn"
+                        onclick="cancela()">Cancelar</button>
                 </div>
             </div>
         </div>
