@@ -1,8 +1,12 @@
 function edit(idReq) {
+    let search = {
+        'id_carro': idReq
+    }
+    console.log(search)
     modalEditCar.style.display = "block"
-    axios.get(`${url}${idReq}`)
+    axios.get(`${url}ativos/search`, search)
         .then((response) => {
-            idEdit.value = response.data.id
+            idEdit.value = response.data.id_carro
             marcaEdit.value = response.data.marca
             modeloEdit.value = response.data.modelo
             corEdit.value = response.data.cor
@@ -22,7 +26,7 @@ function edit(idReq) {
             if (response.data.tamanhoCarro === 'PADRÃO') {
                 padraoEdit.checked = true
             }
-            console.log(response)
+            console.log(response.data)
 
         })
         .catch((e) => console.error(e))
