@@ -4,41 +4,44 @@ function edit(idReq) {
     }
     console.log(search)
     modalEditCar.style.display = "block"
-    axios.get(`${url}ativos/search`, search)
+    axios.get(`${url}ativos/search`, { params: { id_carro: idReq } })
         .then((response) => {
-            idEdit.value = response.data.id_carro
-            marcaEdit.value = response.data.marca
-            modeloEdit.value = response.data.modelo
-            corEdit.value = response.data.cor
-            placaEdit.value = response.data.placa
-            if (response.data.tipoCobranca === 'HORA') {
+            data = response.data[0]
+            idEdit.value = data.id_carro
+            marcaEdit.value = data.marca
+            modeloEdit.value = data.modelo
+            corEdit.value = data.cor
+            placaEdit.value = data.placa
+            if (data.tipo === 1) {
                 horaEdit.checked = true
             }
-            if (response.data.tipoCobranca === 'PERIODO') {
+            if (data.tipo === 2) {
                 periodoEdit.checked = true
             }
-            if (response.data.tamanhoCarro === 'MOTO') {
+            if (data.tamanho === 3) {
                 motoEdit.checked = true
             }
-            if (response.data.tamanhoCarro === 'GRANDE') {
+            if (data.tamanho === 2) {
                 grandeEdit.checked = true
             }
-            if (response.data.tamanhoCarro === 'PADRÃO') {
+            if (data.tamanho === 1) {
                 padraoEdit.checked = true
             }
-            console.log(response.data)
 
         })
         .catch((e) => console.error(e))
 }
 function salvarEdit(marca, modelo, cor, placa, timeType, size, id) {
     const updatedCar = {
+        id_carro: id.value,
+        id_estacionamento: 2,
         marca: marca.value.toUpperCase(),
         modelo: modelo.value.toUpperCase(),
         cor: cor.value.toUpperCase(),
         placa: placa.value.toUpperCase(),
-        tipoCobranca: timeType.value.toUpperCase(),
-        tamanhoCarro: size.value.toUpperCase(),
+        tipo: timeType.value.toUpperCase(),
+        tamanho: size.value.toUpperCase(),
+        finalizado: 0
     }
-    axios.put(`${url}${id.value}`, updatedCar).then((response) => (console.log(response.data))).catch((e) => console.log(e))
+    axios.put(`${url}`, updatedCar).then((response) => (console.log(response.data))).catch((e) => console.log(e))
 }   

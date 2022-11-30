@@ -1,7 +1,6 @@
 function excluir(id) {
-    console.log(id, id.value)
-    axios.delete(`${url}${id.value}`)
-        .then((response) => console.log(location.reload()))
+    axios.delete(`${url}`, { params: { id_carro: id.value } })
+        .then((response) => location.reload())
         .catch((e) => (console.log(e)))
 }
 function abreConfirma(id) {
