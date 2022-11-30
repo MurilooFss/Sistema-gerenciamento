@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "axios": "^1.2.0",
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "path": "^0.12.7"
+  },
+  "name": "sistema-gerenciamento",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MurilooFss/Sistema-gerenciamento.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MurilooFss/Sistema-gerenciamento/issues"
+  },
+  "homepage": "https://github.com/MurilooFss/Sistema-gerenciamento#readme",
+  "description": ""
+}
