@@ -1,12 +1,13 @@
 const axios = require('axios')
 
 
-function verifyUser(email, senha, url, resultado) {
-    resultado = axios.get(`${url}user`, { params: { email, senha } })
-    resultado.then((result) => {
-        resultado = result.data
-    })
-    return resultado
+function verifyUser(email, senha, url) {
+    var resultado
+    console.log(email, senha)
+    var getData = () => {
+        return
+    }
+    getData()
 }
 
 function subtract(x, y) {
