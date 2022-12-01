@@ -17,7 +17,11 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, '/views'))
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.post('/', (req, res) => {
+app.get('/', (req, res) => {
+    res.redirect('/login')
+})
+
+app.post('/login', (req, res) => {
     const email = req.body.email
     const password = req.body.password
     var isAuth
@@ -38,19 +42,51 @@ app.post('/', (req, res) => {
         else {
             console.log('válido')
             req.session.login = email
-            res.render('ativos/ativos')
+            req.session.id_estacionamento = isAuth.id_estacionamento
+            res.redirect('/ativos')
         }
     }, 200);
 })
-
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
     if (req.session.login) {
-        res.render('ativos/ativos')
-        console.log('o usuário logado é o ' + req.session.login)
+        res.redirect('ativos/ativos')
     } else {
         res.render('login/login')
     }
 
+})
+
+app.get('/ativos', (req, res) => {
+    if (req.session.login) {
+        const id_estacionamento = req.session.id_estacionamento
+        axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } }).then(response => {
+            let cars = response.data
+            res.render('ativos/ativos', {
+                values: cars
+            })
+        }).catch(e => console.log(e))
+
+    } else {
+        res.redirect('/login')
+    }
+
+})
+
+app.post('/ativos', (req, res) => {
+    const date = new Date().getTime()
+    const insertCar = {
+        id_estacionamento: req.session.id_estacionamento,
+        marca: req.body.marca.toUpperCase(),
+        modelo: req.body.modelo.toUpperCase(),
+        cor: req.body.cor.toUpperCase(),
+        placa: req.body.placa.toUpperCase(),
+        tipo: req.body.timeType.toUpperCase(),
+        tamanho: req.body.size.toUpperCase(),
+        hora_entrada: date,
+        finalizado: 0
+    }
+    axios.post(urlAPI, insertCar).then(res => console.log(res.data)).catch(e => console.log(e))
+    res.redirect('/ativos')
 })
 
 

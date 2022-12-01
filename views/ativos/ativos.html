@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="stylesheet" href="../../public/css/ativos.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../public/js/loadPage.js">
     </script>
     <script src="../../public/js/inputCar.js">
     </script>
@@ -89,6 +88,54 @@
             </div>
 
             <div class="tabela-dados">
+
+                <% values.forEach(function(carro) {%>
+                    <div class="linhas-tabela">
+
+                        <div class="linha id">
+                            <%=carro.id_carro%>
+                        </div>
+                        <div class="linha marca">
+                            <%=carro.marca%>
+                        </div>
+                        <div class="linha modelo">
+                            <%=carro.modelo%>
+                        </div>
+                        <div class="linha cor">
+                            <%=carro.cor%>
+                        </div>
+                        <div class="linha placa">
+                            <%=carro.placa%>
+                        </div>
+                        <div class="linha tipo">
+                            <% if(carro.tipo==1){%>
+                                HORA
+                                <%}else{%>
+                                    PERÍODO
+                                    <% }%>
+                        </div>
+                        <div class="linha tamanho">
+                            <% if(carro.tamanho==1){%>
+                                PADRÃO
+                                <%}else if(carro.tamanho==2){%>
+                                    GRANDE
+                                    <% }else{%>
+                                        MOTO
+                                        <% }%>
+                        </div>
+                        <div class="linha hora">
+                            <%=carro.hora_entrada%>
+                        </div>
+                        <div class="linha funcoes">
+                            <button class="openModalFinish" onclick="finish()">Finalizar</button>
+                            <button onclick="edit('<%=carro.id_carro%>')">Ed</button>
+                            <button>Pr</button>
+                        </div>
+
+                    </div>
+                    <%})%>
+
+
             </div>
         </div>
         <button id="openModalAddCar" class="adicionar" onclick="add()">add</button>
@@ -99,7 +146,7 @@
                     <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
-                    <form id="form1">
+                    <form id="form1" method="post">
                         <fieldset>
                             <legend>Cadastro Veículo</legend>
                             <label for="marca">Marca:</label>
@@ -117,6 +164,10 @@
                             <label for="placa">Placa:</label>
                             <br>
                             <input type="text" name="placa" id="placa">
+                            <br>
+                            <label for="telefone">Telefone:</label>
+                            <br>
+                            <input type="text" name="telefone" id="telefone">
                             <br>
                             <div class="selectSection">
                                 <p>Tipo:</p>
@@ -141,8 +192,7 @@
                     </form>
                 </div>
                 <div class="footer-modal">
-                    <button form="form1" onclick="envia(marca, modelo, cor, placa, timeType, size)"
-                        class="adicionarBtn">Adicionar</button>
+                    <button form="form1" type="submit" class="adicionarBtn">Adicionar</button>
                     <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn"
                         onclick="cancela()">Cancelar</button>
                 </div>
@@ -241,7 +291,7 @@
                     <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
-                    <form id="form3">
+                    <form id="form3" method="PUT">
                         <fieldset>
                             <legend>Editar Veículo</legend>
                             <label for="marca">Marca:</label>

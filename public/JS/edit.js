@@ -1,10 +1,12 @@
 function edit(idReq) {
+    const urlAPI = 'http://localhost:3000/'
     let search = {
-        'id_carro': idReq
+        'id_carro': Number(idReq)
     }
     console.log(search)
+    console.log(search)
     modalEditCar.style.display = "block"
-    axios.get(`${url}ativos/search`, { params: { id_carro: idReq } })
+    axios.get(`${urlAPI}ativos/search`, { params: { id_carro: idReq } })
         .then((response) => {
             data = response.data[0]
             idEdit.value = data.id_carro

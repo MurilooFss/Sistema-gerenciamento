@@ -1,15 +1,15 @@
 window.onload = function () {
-    window.onclick = function (event) {
-        if (event.target == modalAddCar) {
-            modalAddCar.style.display = "none";
-        }
-        if (event.target == modalFinishTime) {
-            modalFinishTime.style.display = "none";
-        }
-        if (event.target == modalEditCar) {
-            modalEditCar.style.display = "none";
-        }
-    }
+    // window.onclick = function (event) {
+    //     if (event.target == modalAddCar) {
+    //         modalAddCar.style.display = "none";
+    //     }
+    //     if (event.target == modalFinishTime) {
+    //         modalFinishTime.style.display = "none";
+    //     }
+    //     if (event.target == modalEditCar) {
+    //         modalEditCar.style.display = "none";
+    //     }
+    // }
     window.onkeydown = function (event) {
         if (event.key == 'Escape') {
             cancelModalAddCar.click();
