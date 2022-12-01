@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
 
-const func = require('./func/user')
 
 const port = 5500
 var path = require('path')
@@ -21,21 +20,33 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.post('/', (req, res) => {
     const email = req.body.email
     const password = req.body.password
-    console.log(password, email)
-    async function x() {
-        var res
-        let value = await axios.get(`${urlAPI}user`, { params: { email, password } }).then((result) => {
-            return result
-        })
-        res = value.data
-        console.log(res)
-    } x()
-
+    var isAuth
+    async function authUser(email, password, urlAPI) {
+        let x = await axios.get(`${urlAPI}user`, { params: { email, password } })
+            .then(res => {
+                return isAuth = res.data
+            })
+        return x
+    }
+    authUser(email, password, urlAPI)
+    //timeout difined because the promise needed to be loaded.
+    setTimeout(() => {
+        if (isAuth == false) {
+            console.log('usuário inválido')
+            res.render('login/login')
+        }
+        else {
+            console.log('válido')
+            req.session.login = email
+            res.render('ativos/ativos')
+        }
+    }, 200);
 })
 
 app.get('/', (req, res) => {
     if (req.session.login) {
         res.render('ativos/ativos')
+        console.log('o usuário logado é o ' + req.session.login)
     } else {
         res.render('login/login')
     }
