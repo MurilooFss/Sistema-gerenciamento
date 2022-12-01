@@ -2,6 +2,7 @@ const express = require('express')
 const session = require('express-session')
 const bodyParser = require('body-parser')
 const urlAPI = 'http://localhost:3000/'
+const axios = require('axios')
 
 const func = require('./func/user')
 
@@ -20,28 +21,24 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.post('/', (req, res) => {
     const email = req.body.email
     const password = req.body.password
-    let result
-    let resultUser = func.verifyUser(email, password, urlAPI, result).then(res => {
-        //console.log(res.data)
-    })
-    console.log(resultUser)
+    console.log(password, email)
+    async function x() {
+        var res
+        let value = await axios.get(`${urlAPI}user`, { params: { email, password } }).then((result) => {
+            return result
+        })
+        res = value.data
+        console.log(res)
+    } x()
 
-
-    // if (resUser == false) {
-    //     res.render('login/login')
-    // } else {
-    //     req.session.login = email
-    //     res.render('ativos/ativos')
-
-    // }
 })
 
 app.get('/', (req, res) => {
-    // if (req.session.login) {
-    //     res.render('ativos/ativos')
-    // } else {
-    res.render('login/login')
-    // }
+    if (req.session.login) {
+        res.render('ativos/ativos')
+    } else {
+        res.render('login/login')
+    }
 
 })
 
