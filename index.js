@@ -59,18 +59,36 @@ app.get('/login', (req, res) => {
 
 app.get('/ativos', (req, res) => {
     if (req.session.login) {
-        const id_estacionamento = req.session.id_estacionamento
-        axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } }).then(response => {
-            let cars = response.data.carros
-            let vagas = response.data.vagas.vagas
+        (async () => {
+            const id_estacionamento = req.session.id_estacionamento
+            let data = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
+            let cars = data.data.carros
+            let vagas = data.data.vagas.vagas
+            console.log(vagas)
             let vagasDisponiveis = vagas - (cars.length)
             req.session.vagasDisponiveis = vagasDisponiveis
+            for (const iterator of cars) {
+                iterator.hora_entrada = converteHora(iterator.hora_entrada)
+                function converteHora(horaInicial) {
+                    const dt = new Date(Number(horaInicial));
+                    let hr = dt.getHours();
+                    let m = dt.getMinutes();
+                    if (m < 10) {
+                        m = '0' + m
+                    }
+                    if (hr < 10) {
+                        hr = '0' + hr
+                    }
+
+                    return hr + ':' + m
+                }
+            }
             res.render('ativos/ativos', {
                 values: cars,
                 vagas: vagasDisponiveis
             })
-        }).catch(e => console.log(e))
 
+        })()
     } else {
         res.redirect('/login')
     }
