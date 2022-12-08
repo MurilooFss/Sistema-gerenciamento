@@ -5,6 +5,7 @@ const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
 
 
+
 const port = 5500
 var path = require('path')
 const app = express()
@@ -49,7 +50,7 @@ app.post('/login', (req, res) => {
 })
 app.get('/login', (req, res) => {
     if (req.session.login) {
-        res.redirect('ativos/ativos')
+        res.redirect('/ativos')
     } else {
         res.render('login/login')
     }
@@ -60,9 +61,13 @@ app.get('/ativos', (req, res) => {
     if (req.session.login) {
         const id_estacionamento = req.session.id_estacionamento
         axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } }).then(response => {
-            let cars = response.data
+            let cars = response.data.carros
+            let vagas = response.data.vagas.vagas
+            let vagasDisponiveis = vagas - (cars.length)
+            req.session.vagasDisponiveis = vagasDisponiveis
             res.render('ativos/ativos', {
-                values: cars
+                values: cars,
+                vagas: vagasDisponiveis
             })
         }).catch(e => console.log(e))
 
@@ -74,19 +79,28 @@ app.get('/ativos', (req, res) => {
 
 app.post('/ativos', (req, res) => {
     const date = new Date().getTime()
-    const insertCar = {
-        id_estacionamento: req.session.id_estacionamento,
-        marca: req.body.marca.toUpperCase(),
-        modelo: req.body.modelo.toUpperCase(),
-        cor: req.body.cor.toUpperCase(),
-        placa: req.body.placa.toUpperCase(),
-        tipo: req.body.timeType.toUpperCase(),
-        tamanho: req.body.size.toUpperCase(),
-        hora_entrada: date,
-        finalizado: 0
+    if (req.session.vagasDisponiveis > 0) {
+        const insertCar = {
+            id_estacionamento: req.session.id_estacionamento,
+            marca: req.body.marca.toUpperCase(),
+            modelo: req.body.modelo.toUpperCase(),
+            cor: req.body.cor.toUpperCase(),
+            placa: req.body.placa.toUpperCase(),
+            tipo: req.body.timeType,
+            tamanho: req.body.size,
+            telefone: req.body.telefone,
+            hora_entrada: date,
+            finalizado: 0
+        }
+        axios.post(urlAPI, insertCar).then(r => {
+            console.log(r.data)
+            res.redirect('/ativos')
+        }).catch(e => console.log(e))
+
+    } else {
+        res.redirect('/ativos')
     }
-    axios.post(urlAPI, insertCar).then(res => console.log(res.data)).catch(e => console.log(e))
-    res.redirect('/ativos')
+
 })
 
 

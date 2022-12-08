@@ -9,7 +9,13 @@ window.onload = function () {
     //     if (event.target == modalEditCar) {
     //         modalEditCar.style.display = "none";
     //     }
+    let vagas = vagasDisponiveis.textContent
+    console.log(Number(vagas))
+    if (vagas <= 0) {
+        window.alert('Vagas totais foram preenchidas')
+    }
     // }
+
     window.onkeydown = function (event) {
         if (event.key == 'Escape') {
             cancelModalAddCar.click();
