@@ -1,9 +1,7 @@
-function excluir(id) {
-    axios.delete(`${url}`, { params: { id_carro: id.value } })
-        .then((response) => location.reload())
-        .catch((e) => (console.log(e)))
-}
-function abreConfirma(id) {
-    idConfirma.value = id.value
+function abreConfirma() {
     modalConfirma.style.display = "block";
+}
+function abreConfirma2() {
+    const url = 'http://localhost:3000/'
+    modalConfirma2.style.display = "block";
 }
