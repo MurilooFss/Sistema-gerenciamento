@@ -153,6 +153,7 @@
                             <legend>Cadastro Veículo</legend>
                             <label for="marca">Marca:</label>
                             <br>
+                            <input type="hidden" id="act" name="act" value="0">
                             <input type="text" name="marca" id="marca">
                             <br>
                             <label for="modelo">Modelo:</label>
@@ -207,9 +208,10 @@
                     <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
-                    <form id="form2">
+                    <form id="form2" method="post">
                         <fieldset>
                             <legend>Finalizar Tempo</legend>
+                            <input type="hidden" id="act" name="act" value="1">
                             <label for="marca">Marca:</label>
                             <br>
                             <input type="text" name="marca" id="marcaFinish" disabled>
@@ -293,8 +295,9 @@
                     <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
-                    <form id="form3" method="PUT">
+                    <form id="form3" method="post">
                         <fieldset>
+                            <input type="hidden" id="act" name="act" value="2">
                             <legend>Editar Veículo</legend>
                             <label for="marca">Marca:</label>
                             <br>

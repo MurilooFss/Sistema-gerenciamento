@@ -97,9 +97,32 @@ app.get('/ativos', (req, res) => {
 
 app.post('/ativos', (req, res) => {
     const date = new Date().getTime()
-    if (req.session.vagasDisponiveis > 0) {
-        const insertCar = {
-            id_estacionamento: req.session.id_estacionamento,
+    const action = req.body.act
+    if (action == 0) {
+        if (req.session.vagasDisponiveis > 0) {
+            const insertCar = {
+                id_estacionamento: req.session.id_estacionamento,
+                marca: req.body.marca.toUpperCase(),
+                modelo: req.body.modelo.toUpperCase(),
+                cor: req.body.cor.toUpperCase(),
+                placa: req.body.placa.toUpperCase(),
+                tipo: req.body.timeType,
+                tamanho: req.body.size,
+                telefone: req.body.telefone,
+                hora_entrada: date,
+                finalizado: 0
+            }
+            axios.post(urlAPI, insertCar).then(r => {
+                console.log(r.data)
+                res.redirect('/ativos')
+            }).catch(e => console.log(e))
+
+        } else {
+            res.redirect('/ativos')
+        }
+    }
+    if (action == 2) {
+        const updateCar = {
             marca: req.body.marca.toUpperCase(),
             modelo: req.body.modelo.toUpperCase(),
             cor: req.body.cor.toUpperCase(),
@@ -107,16 +130,7 @@ app.post('/ativos', (req, res) => {
             tipo: req.body.timeType,
             tamanho: req.body.size,
             telefone: req.body.telefone,
-            hora_entrada: date,
-            finalizado: 0
         }
-        axios.post(urlAPI, insertCar).then(r => {
-            console.log(r.data)
-            res.redirect('/ativos')
-        }).catch(e => console.log(e))
-
-    } else {
-        res.redirect('/ativos')
     }
 
 })
