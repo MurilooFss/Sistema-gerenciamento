@@ -8,6 +8,8 @@
     <title>Ativos - Park Manager</title>
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="stylesheet" href="../../public/css/ativos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </script>
     <script src="../../public/js/inputCar.js">
@@ -208,7 +210,7 @@
                     <span class="close" onclick="fecha()">&times</span>
                 </div>
                 <div class="body-modal">
-                    <form id="form2" method="post">
+                    <form id="form2">
                         <fieldset>
                             <legend>Finalizar Tempo</legend>
                             <input type="hidden" id="act" name="act" value="1">
@@ -249,9 +251,9 @@
                                 <label for="Moto">Moto</label>
 
                                 <p>Adicional:</p>
-                                <input type="checkbox" name="lavagem" id="lavagem">
+                                <input type="checkbox" name="lavagem" id="lavagem" value="1">
                                 <label for="lavagem">Lava-rápido</label>
-                                <input type="checkbox" name="hInterna" id="hInterna">
+                                <input type="checkbox" name="hInterna" id="hInterna" value="1">
                                 <label for="hInterna">Higienização Interna</label>
                                 <br>
                                 <p>Convênio:</p>
@@ -283,7 +285,7 @@
                     </form>
                 </div>
                 <div class="footer-modal">
-                    <button form="form2" type="submit" class="adicionarBtn">Finalizar</button>
+                    <button form="form2" type="button" class="sfdkfd adicionarBtn">Finalizar</button>
                     <button id="cancelModalFinishTime" form="form2" type="reset" class="cancelarBtn"
                         onclick="cancela()">Cancelar</button>
                 </div>
@@ -384,24 +386,33 @@
                 <div class="body-modal">
                     <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
                     <p class="pConfirma">Deseja finalizar esse Registro?</p>
+                    <input type="hidden" id="confirmaFinish" name="id_carro">
+                    <input type="hidden" id="act" name="act" value="3">
+                    <p>ID: <span id="idCarSpanFinishModal"></span></p>
+                    <p>Marca: <span id="marcaSpanFinishModal"></span></p>
+                    <p>Modelo: <span id="modeloSpanFinishModal"></span></p>
+                    <p>Placa: <span id="placaSpanFinishModal"></span></p>
+                    <p>Hora Entrada: <span id="horaEntradaSpanFinishModal"></span></p>
+                    <p>Hora Saída: <span id="horaSaidaSpanFinishModal"></span></p>
+                    <p>Adicionais: <span id="adicionaisSpanFinishModal"></span></p>
+                    <p>Convênio: <span id="convenioSpanFinishModal"></span></p>
+                    <p>Tempo Total: <span id="tempoTotalSpanFinishModal"></span></p>
+                    <p>Valor Total: <span id="valorTotalSpanFinishModal"></span></p>
+
                 </div>
                 <div class="footer-modal">
-                    <form id="form5" method="post">
-                        <input type="hidden" id="confirmaFinish" name="id_carro">
-                        <input type="hidden" id="act" name="act" value="3">
-                        <label for="tempoFinal">Tempo final:</label>
-                        <input type="text" id="tempoFinal" disabled value="">
-                        <label for="valorFinal">Total:</label>
-                        <input type="text" id="valorFinal" disabled value="">
-                    </form>
-                    <button type="submit" form="form5" class="cancelarBtn">Excluir</button>
-                    <button id="cancelModalEditCar" class="cancelarBtn" onclick="cancelaConfirma()">Cancelar</button>
+
+
+                    <button type="button" class="wemiseparrk adicionarBtn">Finalizar</button>
+                    <button id="cancelModalFinishCar" type="reset" class="cancelarBtn"
+                        onclick="cancelaConfirma()">Cancelar</button>
                 </div>
             </div>
         </div>
     </main>
     <script src="../../public/js/edit.js"></script>
     <script src="../../public/js/finish.js"></script>
+    <script src="../../public/js/remove.js"></script>
 </body>
 
 </html>

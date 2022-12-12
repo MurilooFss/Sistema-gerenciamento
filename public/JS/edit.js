@@ -1,6 +1,3 @@
-
-
-
 document.querySelectorAll('.wxosppsaw').forEach(function (b) {
     b.addEventListener('click', (e) => {
         const element = e.target

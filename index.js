@@ -33,11 +33,9 @@ app.post('/login', (req, res) => {
             .then(r => {
                 isAuth = r.data
                 if (isAuth == false) {
-                    console.log('usuário inválido')
                     res.render('login/login')
                 }
                 else {
-                    console.log('válido')
                     req.session.login = email
                     req.session.id_estacionamento = isAuth.id_estacionamento
                     res.redirect('/ativos')
@@ -112,7 +110,6 @@ app.post('/ativos', (req, res) => {
                     finalizado: 0
                 }
                 axios.post(urlAPI, insertCar).then(r => {
-                    console.log(r.data)
                     res.redirect('/ativos')
                 }).catch(e => console.log(e))
 
@@ -131,8 +128,7 @@ app.post('/ativos', (req, res) => {
                 payType: data.payType
             }
             axios.put(`${urlAPI}ativos`, finishCar).then(r => {
-                console.log(r)
-                abreConfirma2()
+                res.send({ valorFinal: r.data.valor_total })
             }).catch(e => console.log(e))
         }
         if (action == 2) {

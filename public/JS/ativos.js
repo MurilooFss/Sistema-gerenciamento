@@ -20,27 +20,29 @@ window.onload = function () {
         if (event.key == 'Escape') {
             cancelModalAddCar.click();
             cancelModalFinishTime.click();
-            cancelModalEditCar.click()
+            cancelModalFinishCar.click()
         }
-    }
-};
+    };
 
-
+}
 
 function fecha() {
     modalAddCar.style.display = "none";
     modalFinishTime.style.display = "none";
     modalEditCar.style.display = "none";
     modalConfirma.style.display = "none";
+    modalConfirma2.style.display = "none";
 }
 function cancela() {
     modalAddCar.style.display = "none";
     modalFinishTime.style.display = "none";
     modalEditCar.style.display = 'none'
     modalConfirma.style.display = "none";
+    modalConfirma2.style.display = "none";
 }
 function cancelaConfirma() {
     modalConfirma.style.display = "none";
+    modalConfirma2.style.display = "none";
 }
 
 
