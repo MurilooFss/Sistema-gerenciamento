@@ -1,0 +1,65 @@
+<div id="modalEditCar" class="modal">
+    <div class="conteudo-modal">
+        <div class="header-modal">
+            <h3>Editar Veículo</h3>
+            <span class="close" onclick="fecha()">&times</span>
+        </div>
+        <div class="body-modal">
+            <form id="form3" method="post">
+                <fieldset>
+                    <input type="hidden" id="act" name="act" value="2">
+                    <input type="hidden" id="exec" name="exec" value="edit">
+                    <legend>Editar Veículo</legend>
+                    <label for="marca">Marca:</label>
+                    <br>
+                    <input type="text" name="marca" id="marcaEdit">
+                    <br>
+                    <input type="hidden" name="idEdit" id="idEdit">
+                    <label for="modelo">Modelo:</label>
+                    <br>
+                    <input type="text" name="modelo" id="modeloEdit">
+                    <br>
+                    <label for="cor">Cor:</label>
+                    <br>
+                    <input type="text" name="cor" id="corEdit">
+                    <br>
+                    <label for="placa">Placa:</label>
+                    <br>
+                    <input type="text" name="placa" id="placaEdit">
+                    <br>
+                    <label for="telefone">Telefone:</label>
+                    <br>
+                    <input type="text" name="telefone" id="telefoneEdit">
+                    <br>
+
+                    <div class="selectSection">
+                        <p>Tipo:</p>
+                        <input type="radio" name="timeType" id="horaEdit" value="1" class="radio">
+                        <label for="hora">Hora</label>
+                        <br>
+                        <input type="radio" name="timeType" id="periodoEdit" value="2" class="radio">
+                        <label for="periodo">Período</label>
+                    </div>
+                    <div class="selectSection">
+                        <p>Tamanho:</p>
+                        <input type="radio" name="size" id="padraoEdit" value="1" class="radio">
+                        <label for="padraoEdit">Padrão</label>
+                        <br>
+                        <input type="radio" name="size" id="grandeEdit" value="2" class="radio">
+                        <label for="grande">Grande</label>
+                        <br>
+                        <input type="radio" name="size" id="motoEdit" value="3" class="radio">
+                        <label for="moto">Moto</label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="footer-modal">
+            <button form="form3" class="adicionarBtn">Salvar</button>
+            <button onclick="abreConfirma()" class="cancelarBtn">Excluir</button>
+            <button id="cancelModalEditCar" form="form3" type="reset" class="cancelarBtn"
+                onclick="cancela()">Cancelar</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,60 @@
+<div id="modalAddCar" class="modal">
+    <div class="conteudo-modal">
+        <div class="header-modal">
+            <h3>Adicionar Veículo</h3>
+            <span class="close" onclick="fecha()">&times</span>
+        </div>
+        <div class="body-modal">
+            <form id="form1" method="post">
+                <fieldset>
+                    <legend>Cadastro Veículo</legend>
+                    <label for="marca">Marca:</label>
+                    <br>
+                    <input type="hidden" id="act" name="act" value="0">
+                    <input type="text" name="marca" id="marca">
+                    <br>
+                    <label for="modelo">Modelo:</label>
+                    <br>
+                    <input type="text" name="modelo" id="modelo">
+                    <br>
+                    <label for="cor">Cor:</label>
+                    <br>
+                    <input type="text" name="cor" id="cor">
+                    <br>
+                    <label for="placa">Placa:</label>
+                    <br>
+                    <input type="text" name="placa" id="placa">
+                    <br>
+                    <label for="telefone">Telefone:</label>
+                    <br>
+                    <input type="text" name="telefone" id="telefone">
+                    <br>
+                    <div class="selectSection">
+                        <p>Tipo:</p>
+                        <input type="radio" name="timeType" id="hora" value="1" class="radio">
+                        <label for="hora">Hora</label>
+                        <br>
+                        <input type="radio" name="timeType" id="Periodo" value="2" class="radio">
+                        <label for="Periodo">Período</label>
+                    </div>
+                    <div class="selectSection">
+                        <p>Tamanho:</p>
+                        <input type="radio" name="size" id="Padrão" value="1" class="radio">
+                        <label for="Padrão">Padrão</label>
+                        <br>
+                        <input type="radio" name="size" id="Grande" value="2" class="radio">
+                        <label for="Grande">Grande</label>
+                        <br>
+                        <input type="radio" name="size" id="Moto" value="3" class="radio">
+                        <label for="Moto">Moto</label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="footer-modal">
+            <button form="form1" type="submit" class="adicionarBtn">Adicionar</button>
+            <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn"
+                onclick="cancela()">Cancelar</button>
+        </div>
+    </div>
+</div>

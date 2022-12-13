@@ -33,7 +33,7 @@ app.post('/login', (req, res) => {
             .then(r => {
                 isAuth = r.data
                 if (isAuth == false) {
-                    res.render('login/login')
+                    res.render('pages/login/login')
                 }
                 else {
                     req.session.login = email
@@ -49,7 +49,7 @@ app.get('/login', (req, res) => {
     if (req.session.login) {
         res.redirect('/ativos')
     } else {
-        res.render('login/login')
+        res.render('pages/login/login')
     }
 
 })
@@ -61,7 +61,7 @@ app.get('/ativos', (req, res) => {
             let data = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
             let cars = data.data.carros
             let vagas = data.data.vagas.vagas
-            let vagasDisponiveis = vagas - (cars.length)
+            var vagasDisponiveis = vagas - (cars.length)
             req.session.vagasDisponiveis = vagasDisponiveis
             for (const iterator of cars) {
                 iterator.hora_entrada = converteHora(iterator.hora_entrada)
@@ -79,7 +79,7 @@ app.get('/ativos', (req, res) => {
                     return hr + ':' + m
                 }
             }
-            res.render('ativos/ativos', {
+            res.render('pages/ativos/ativos', {
                 values: cars,
                 vagas: vagasDisponiveis
             })
@@ -159,6 +159,42 @@ app.post('/ativos', (req, res) => {
         res.redirect('/login')
     }
 
+})
+
+app.get('/historico', (req, res) => {
+    if (req.session.login) {
+        (async () => {
+            const id_estacionamento = req.session.id_estacionamento
+            let cars = await axios.get(`${urlAPI}historico`, { params: { id_estacionamento } })
+            function converteHora(hora) {
+                const dt = new Date(Number(hora));
+                let hr = dt.getHours();
+                let m = dt.getMinutes();
+                if (m < 10) {
+                    m = '0' + m
+                }
+                if (hr < 10) {
+                    hr = '0' + hr
+                }
+
+                return hr + ':' + m
+            }
+            for (const iterator of cars.data) {
+                iterator.hora_entrada = converteHora(iterator.hora_entrada)
+            }
+            for (const iterator of cars.data) {
+                iterator.hora_saida = converteHora(iterator.hora_saida)
+            }
+
+            res.render('pages/historico/historico', {
+                values: cars.data,
+                vagas: req.session.vagasDisponiveis
+            })
+        })()
+
+    } else {
+        res.redirect('/login')
+    }
 })
 
 

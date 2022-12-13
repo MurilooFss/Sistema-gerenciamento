@@ -1,0 +1,53 @@
+<div id="modalConfirma" class="modal">
+    <div class="conteudo-modal modal-confirma">
+        <div class="header-modal">
+            <h3>Confirma</h3>
+            <span class="close" onclick="cancelaConfirma()">&times</span>
+        </div>
+        <div class="body-modal">
+            <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+            <p class="pConfirma">Deseja excluir esse Registro?</p>
+        </div>
+        <div class="footer-modal">
+            <form id="form4" method="post">
+                <input type="hidden" id="confirmaExclude" name="id_carro">
+                <input type="hidden" id="act" name="act" value="2">
+                <input type="hidden" id="exec" name="exec" value="exclude">
+            </form>
+            <button type="submit" form="form4" class="cancelarBtn">Excluir</button>
+            <button id="cancelModalEditCar" class="cancelarBtn" onclick="cancelaConfirma()">Cancelar</button>
+        </div>
+    </div>
+</div>
+<div id="modalConfirma2" class="modal">
+    <div class="conteudo-modal modal-confirma">
+        <div class="header-modal">
+            <h3>Finaliza</h3>
+            <span class="close" onclick="cancelaConfirma()">&times</span>
+        </div>
+        <div class="body-modal">
+            <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+            <p class="pConfirma">Deseja finalizar esse Registro?</p>
+            <input type="hidden" id="confirmaFinish" name="id_carro">
+            <input type="hidden" id="act" name="act" value="3">
+            <p>ID: <span id="idCarSpanFinishModal"></span></p>
+            <p>Marca: <span id="marcaSpanFinishModal"></span></p>
+            <p>Modelo: <span id="modeloSpanFinishModal"></span></p>
+            <p>Placa: <span id="placaSpanFinishModal"></span></p>
+            <p>Hora Entrada: <span id="horaEntradaSpanFinishModal"></span></p>
+            <p>Hora Saída: <span id="horaSaidaSpanFinishModal"></span></p>
+            <p>Adicionais: <span id="adicionaisSpanFinishModal"></span></p>
+            <p>Convênio: <span id="convenioSpanFinishModal"></span></p>
+            <p>Tempo Total: <span id="tempoTotalSpanFinishModal"></span></p>
+            <p>Valor Total: <span id="valorTotalSpanFinishModal"></span></p>
+
+        </div>
+        <div class="footer-modal">
+
+
+            <button type="button" class="wemiseparrk adicionarBtn">Finalizar</button>
+            <button id="cancelModalFinishCar" type="reset" class="cancelarBtn"
+                onclick="cancelaConfirma()">Cancelar</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.html'); %>
+
+    <body>
+        <%- include('../../partials/header.html'); %>
+            <h1>Histórico</h1>
+            <section class="cars-history">
+                <% values.forEach(function(carro) {%>
+                    <a href="">
+                        <div class="row">
+                            <div class="content">
+                                <p>
+                                    <strong>#<%=carro.id_carro%></strong>
+                                </p>
+                                <p>
+                                    <%=carro.marca%>
+                                        <%=carro.modelo%> -
+                                            <%=carro.placa%>
+                                </p>
+                                <p>
+                                    <%=carro.hora_entrada%> ~ <%=carro.hora_saida%>
+                                </p>
+                                <p>
+                                    <strong>R$<%=carro.valor_total%></strong>
+                                </p>
+
+                            </div>
+                            >
+                        </div>
+                    </a>
+                    <%})%>
+            </section>
+    </body>
+
+</html>

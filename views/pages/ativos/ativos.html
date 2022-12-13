@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.html'); %>
+
+    <body>
+        <%- include('../../partials/header.html'); %>
+            <main>
+                <div class="tabela-ativos">
+                    <div class="tabela-topo">
+                        <h2>Ativos</h2>
+                        <div class="colunas-tabela">
+                            <div class="col id">Id</div>
+                            <div class="col marca">Marca</div>
+                            <div class="col modelo">Modelo</div>
+                            <div class="col cor">Cor</div>
+                            <div class="col placa">Placa</div>
+                            <div class="col tipo">Tipo</div>
+                            <div class="col tamanho">Tamanho</div>
+                            <div class="col hora">Hora Entrada</div>
+                            <div class="col funcoes">Funções</div>
+                        </div>
+                    </div>
+
+                    <div class="tabela-dados">
+                        <% values.forEach(function(carro) {%>
+                            <div class="linhas-tabela">
+
+                                <div class="linha id">
+                                    <%=carro.id_carro%>
+                                </div>
+                                <div class="linha marca">
+                                    <%=carro.marca%>
+                                </div>
+                                <div class="linha modelo">
+                                    <%=carro.modelo%>
+                                </div>
+                                <div class="linha cor">
+                                    <%=carro.cor%>
+                                </div>
+                                <div class="linha placa">
+                                    <%=carro.placa%>
+                                </div>
+                                <div class="linha tipo">
+                                    <% if(carro.tipo==1){%>
+                                        HORA
+                                        <%}else{%>
+                                            PERÍODO
+                                            <% }%>
+                                </div>
+                                <div class="linha tamanho">
+                                    <% if(carro.tamanho==1){%>
+                                        PADRÃO
+                                        <%}else if(carro.tamanho==2){%>
+                                            GRANDE
+                                            <% }else{%>
+                                                MOTO
+                                                <% }%>
+                                </div>
+                                <div class="linha hora">
+                                    <%=carro.hora_entrada%>
+                                </div>
+                                <div class="linha funcoes">
+                                    <button
+                                        class="openModalFinish mrrfsrfss <%=Number(carro.id_carro)%>">Finalizar</button>
+                                    <button class="wxosppsaw <%=Number(carro.id_carro)%>">Ed</button>
+                                    <button>Pr</button>
+                                </div>
+
+                            </div>
+                            <%})%>
+                    </div>
+                </div>
+                <button id="openModalAddCar" class="adicionar" onclick="add()">add</button>
+                <%- include('../../partials/modalAdd.html'); %>
+                    <%- include('../../partials/modalFinish.html'); %>
+                        <%- include('../../partials/modalEdit.html'); %>
+                            <%- include('../../partials/modalConfirma.html'); %>
+            </main>
+            <script src="../../public/js/edit.js"></script>
+            <script src="../../public/js/finish.js"></script>
+            <script src="../../public/js/remove.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,88 @@
+<div id="modalFinishTime" class="modal">
+    <div class="conteudo-modal">
+        <div class="header-modal">
+            <h3>Finalizar Tempo</h3>
+            <span class="close" onclick="fecha()">&times</span>
+        </div>
+        <div class="body-modal">
+            <form id="form2">
+                <fieldset>
+                    <legend>Finalizar Tempo</legend>
+                    <input type="hidden" id="act" name="act" value="1">
+                    <label for="marca">Marca:</label>
+                    <br>
+                    <input type="text" name="marca" id="marcaFinish" disabled>
+                    <br>
+                    <label for="modelo">Modelo:</label>
+                    <br>
+                    <input type="text" name="modelo" id="modeloFinish" disabled>
+                    <br>
+                    <label for="cor">Cor:</label>
+                    <br>
+                    <input type="text" name="cor" id="corFinish" disabled>
+                    <input type="hidden" name="idFinish" id="idFinish">
+                    <br>
+                    <label for="placa">Placa:</label>
+                    <br>
+                    <input type="text" name="placa" id="placaFinish" disabled>
+                    <br>
+                    <div class="selectSection">
+                        <p>Tipo:</p>
+                        <input type="radio" name="timeType" id="hourFinish" value="1" class="radio" disabled>
+                        <label for="hour">Hora</label>
+                        <br>
+                        <input type="radio" name="timeType" id="periodFinish" value="2" class="radio" disabled>
+                        <label for="period">Período</label>
+                    </div>
+                    <div class="selectSection">
+                        <p>Tamanho:</p>
+                        <input type="radio" name="size" id="padraoFinish" value="1" class="radio" disabled>
+                        <label for="Padrão">Padrão</label>
+                        <br>
+                        <input type="radio" name="size" id="grandeFinish" value="2" class="radio" disabled>
+                        <label for="Grande">Grande</label>
+                        <br>
+                        <input type="radio" name="size" id="motoFinish" value="3" class="radio" disabled>
+                        <label for="Moto">Moto</label>
+
+                        <p>Adicional:</p>
+                        <input type="checkbox" name="lavagem" id="lavagem" value="1">
+                        <label for="lavagem">Lava-rápido</label>
+                        <input type="checkbox" name="hInterna" id="hInterna" value="1">
+                        <label for="hInterna">Higienização Interna</label>
+                        <br>
+                        <p>Convênio:</p>
+                        <select name="convenio" id="convenio">
+                            <option value="0">Nenhum</option>
+                            <option value="1">Hospital</option>
+                            <option value="2">Clínica</option>
+                            <option value="3">Loja</option>
+                            <option value="4">Farmácia</option>
+                        </select>
+                        <p>Desconto:</p>
+                        <select name="desconto" id="desconto">
+                            <option value="0">Nenhum</option>
+                            <option value="1">5%</option>
+                            <option value="2">10%</option>
+                            <option value="3">15%</option>
+                            <option value="4">20%</option>
+                        </select>
+
+                        <p>Método de Pagamento:</p>
+                        <input type="radio" name="payType" id="card" value="1" class="radio">
+                        <label for="card">Cartão</label>
+                        <input type="radio" name="payType" id="money" value="2" class="radio">
+                        <label for="money">Dinheiro</label>
+                        <input type="radio" name="payType" id="pix" value="3" class="radio">
+                        <label for="pix">Pix</label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="footer-modal">
+            <button form="form2" type="button" class="sfdkfd adicionarBtn">Finalizar</button>
+            <button id="cancelModalFinishTime" form="form2" type="reset" class="cancelarBtn"
+                onclick="cancela()">Cancelar</button>
+        </div>
+    </div>
+</div>
