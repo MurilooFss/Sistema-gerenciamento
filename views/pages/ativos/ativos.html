@@ -8,56 +8,61 @@
             <main>
                 <h2>Ativos</h2>
 
-                <input type="search">
+                <input type="text" id="search" onkeyup="find()">
+                <br>
+
 
 
                 <div class="cars-data">
 
                     <% values.forEach(function(carro) {%>
                         <div class="car">
-                            <p>
-                                <strong>#<%=carro.id_carro%></strong>
-                            </p>
-                            <hr>
-                            <div class="content-ativos">
-                                <div class="data">
-
-
-                                    <p>
-                                        <%=carro.marca%>
-                                            <%=carro.modelo%>
-                                    </p>
-                                    <p>
-                                        <%=carro.cor%>
-                                    </p>
-                                    <p>
-                                        <%=carro.placa%>
-                                    </p>
-                                    <p>
-                                        <% if(carro.tipo==1){%>
-                                            HORA
-                                            <%}else{%>
-                                                PERÍODO
-                                                <% }%>
-                                    </p>
-                                    <p>
-                                        <% if(carro.tamanho==1){%>
-                                            PADRÃO
-                                            <%}else if(carro.tamanho==2){%>
-                                                GRANDE
-                                                <% }else{%>
-                                                    MOTO
-                                                    <% }%>
-                                    </p>
-                                    <p>
-                                        <%=carro.hora_entrada%>
-                                    </p>
-                                </div>
+                            <div class="content-title">
+                                <p>
+                                    <strong>#<%=carro.id_carro%></strong>
+                                </p>
                                 <div class="buttons">
-                                    <button class="openModalFinish mrrfsrfss <%=Number(carro.id_carro)%>">F</button>
-                                    <button class="wxosppsaw <%=Number(carro.id_carro)%>">E</button>
-                                    <button>Z</button>
+                                    <a class="openModalFinish mrrfsrfss <%=Number(carro.id_carro)%>"></a>
+                                    <a class="wxosppsaw <%=Number(carro.id_carro)%>"></a>
+                                    <a class="zap <%=Number(carro.id_carro)%>"></a>
                                 </div>
+                            </div>
+                            <hr>
+
+                            <div class="data">
+
+
+                                <p>
+                                    <%=carro.marca%>
+                                        <%=carro.modelo%>
+                                </p>
+                                <p>
+                                    <%=carro.cor%>
+                                </p>
+                                <p>
+                                    <%=carro.placa%>
+                                </p>
+                                <p>
+                                    <% if(carro.tipo==1){%>
+                                        HORA
+                                        <%}else{%>
+                                            PERÍODO
+                                            <% }%>
+                                </p>
+                                <p>
+                                    <% if(carro.tamanho==1){%>
+                                        PADRÃO
+                                        <%}else if(carro.tamanho==2){%>
+                                            GRANDE
+                                            <% }else{%>
+                                                MOTO
+                                                <% }%>
+                                </p>
+                                <p>
+                                    <%=carro.hora_entrada%>
+                                </p>
+
+
                             </div>
 
 
@@ -76,6 +81,7 @@
             <script src="../../public/js/edit.js"></script>
             <script src="../../public/js/finish.js"></script>
             <script src="../../public/js/remove.js"></script>
+            <script src="../../public/js/findInPage.js"></script>
     </body>
 
 </html>
