@@ -5,33 +5,38 @@
 
     <body>
         <%- include('../../partials/header.html'); %>
-            <h1>Histórico</h1>
-            <section class="cars-history">
-                <% values.forEach(function(carro) {%>
-                    <a href="">
-                        <div class="row">
-                            <div class="content">
-                                <p>
-                                    <strong>#<%=carro.id_carro%></strong>
-                                </p>
-                                <p>
-                                    <%=carro.marca%>
-                                        <%=carro.modelo%> -
-                                            <%=carro.placa%>
-                                </p>
-                                <p>
-                                    <%=carro.hora_entrada%> ~ <%=carro.hora_saida%>
-                                </p>
-                                <p>
-                                    <strong>R$<%=carro.valor_total%></strong>
-                                </p>
+            <main>
+                <h2>Histórico</h2>
+                <input type="text" id="search" class="search2" onkeyup="find2()">
+                <section class="cars-history">
+                    <% values.forEach(function(carro) {%>
+                        <a href="">
+                            <div class="row">
+                                <div class="content">
+                                    <p>
+                                        <strong>#<%=carro.id_carro%></strong>
+                                    </p>
+                                    <p>
+                                        <%=carro.marca%>
+                                            <%=carro.modelo%> -
+                                                <%=carro.placa%>
+                                    </p>
+                                    <p>
+                                        <%=carro.hora_entrada%> ~ <%=carro.hora_saida%>
+                                    </p>
+                                    <p>
+                                        <strong>R$<%=carro.valor_total%></strong>
+                                    </p>
 
+                                </div>
+                                >
                             </div>
-                            >
-                        </div>
-                    </a>
-                    <%})%>
-            </section>
+                        </a>
+                        <%})%>
+                </section>
+            </main>
+
     </body>
+    <script src="../../public/js/findInPage.js"></script>
 
 </html>
