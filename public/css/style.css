@@ -2,12 +2,19 @@
     --fontInput: #272727;
     --confirmColor: #1a961a;
     --cancelColor: #910d0d;
+    --dark-blue: #0e3658;
+    --medium-blue: #165081;
+    --light-blue: #29abf4;
+    --red: f54646;
+    --white: #FFF;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
     margin: 0;
+    box-sizing: border-box;
+
 }
 
 a {
@@ -105,7 +112,7 @@ p {
     text-decoration: none;
 }
 
-input {
+.modal input {
     width: 100%;
     height: 30px;
     font-family: 'Poppins', sans-serif;

@@ -7,13 +7,13 @@ header {
 
 }
 
-div.tabela-dados::-webkit-scrollbar {
+div.cars-data::-webkit-scrollbar {
     width: 5px;
     background-color: #ccc;
     color: #222;
 }
 
-div.tabela-dados::-webkit-scrollbar-thumb {
+div.cars-data::-webkit-scrollbar-thumb {
     width: 5px;
     background-color: #222;
     color: #222;
@@ -31,48 +31,68 @@ div.tabela-dados::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.tabela-ativos {
-    background-color: #ddd;
-    min-height: 50vh;
-    max-height: 75vh;
-    width: 75%;
-    margin: 10px auto;
+h2 {
     text-align: center;
-    border: 2px solid #222;
 }
 
-.colunas-tabela,
-.linhas-tabela {
+.cars-data {
+    max-width: 70vw;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.car {
+    box-sizing: border-box;
+    width: 18%;
+    display: inline;
+    float: left;
+    background-color: var(--medium-blue);
+    margin-right: 20px;
+    color: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+}
+
+.content-ativos {
     display: flex;
-    align-items: center;
-    margin: auto;
-    justify-content: center;
-
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-right: 11px;
 }
 
-.col,
-.linha {
-    width: 10%;
-    border: 1px solid #222;
-    border-left: none;
-    height: 25px;
-    background-color: #fff;
+.data {
+    max-width: 95%;
+    min-width: 95%;
+    box-sizing: border-box;
 }
 
-.tabela-dados {
-    overflow-y: auto;
-    max-height: 50vh;
-    margin-bottom: 30px;
-    scrollbar-width: none;
+.buttons {
+    max-width: 5%;
+    min-width: 5%;
+    box-sizing: border-box;
 }
 
-.col {
-    font-weight: 700;
+.buttons button {
+    display: none;
 }
 
-.id {
-    border-left: 1px solid #222;
+.car:hover .buttons button {
+    display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .adicionar {
     position: fixed;
