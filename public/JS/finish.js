@@ -3,7 +3,6 @@ document.querySelectorAll('.mrrfsrfss').forEach(function (b) {
         const element = e.target
         const cl = element.className
         const n = cl.replace(/[^0-9]/g, '')
-        console.log(n)
         finish(n)
     })
 })

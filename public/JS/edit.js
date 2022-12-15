@@ -11,7 +11,6 @@ function edit(idReq) {
     let search = {
         'id_carro': Number(idReq)
     }
-    confirmaExclude.value = idReq
     console.log(search)
     modalEditCar.style.display = "block"
     axios.get(`${urlAPI}ativos/search`, { params: { id_carro: idReq } })
@@ -41,4 +40,9 @@ function edit(idReq) {
 
         })
         .catch((e) => console.error(e))
+    document.querySelectorAll('.fallends2').forEach(function (b) {
+        b.addEventListener('click', (e) => {
+            exclude(idReq, urlAPI)
+        })
+    })
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <%- include('../../partials/head.html'); %>
 
@@ -10,7 +10,7 @@
                 <input type="text" id="search" class="search2" onkeyup="find2()">
                 <section class="cars-history">
                     <% values.forEach(function(carro) {%>
-                        <a href="">
+                        <div class="">
                             <div class="row">
                                 <div class="content">
                                     <p>
@@ -29,14 +29,18 @@
                                     </p>
 
                                 </div>
-                                >
+                                <div class="hpseks <%=carro.id_carro%>">></div>
                             </div>
-                        </a>
+                        </div>
                         <%})%>
                 </section>
             </main>
+            <%- include('../../partials/modalHist.html'); %>
+                <%- include('../../partials/modalConfirma.html'); %>
 
     </body>
-    <script src="../../public/js/findInPage.js"></script>
+    <script src="../../../public/js/findInPage.js"></script>
+    <script src="../../../public/JS/hist.js"></script>
+    <script src="../../../public/JS/ativos.js"></script>
 
 </html>

@@ -2,7 +2,7 @@
     <div class="conteudo-modal">
         <div class="header-modal">
             <h3>Editar Veículo</h3>
-            <span class="close" onclick="fecha()">&times</span>
+            <span class="close" onclick="fecha('modalEditCar')">&times</span>
         </div>
         <div class="body-modal">
             <form id="form3" method="post">
@@ -58,7 +58,7 @@
             <button form="form3" class="adicionarBtn">Salvar</button>
             <button onclick="abreConfirma()" class="cancelarBtn">Excluir</button>
             <button id="cancelModalEditCar" form="form3" type="reset" class="cancelarBtn"
-                onclick="cancela()">Cancelar</button>
+                onclick="fecha('modalEditCar')">Cancelar</button>
         </div>
     </div>
 

@@ -2,20 +2,32 @@
     <div class="conteudo-modal modal-confirma">
         <div class="header-modal">
             <h3>Confirma</h3>
-            <span class="close" onclick="cancelaConfirma()">&times</span>
+            <span class="close" onclick="fecha('modalConfirma')">&times</span>
         </div>
         <div class="body-modal">
             <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
             <p class="pConfirma">Deseja excluir esse Registro?</p>
         </div>
         <div class="footer-modal">
-            <form id="form4" method="post">
-                <input type="hidden" id="confirmaExclude" name="id_carro">
-                <input type="hidden" id="act" name="act" value="2">
-                <input type="hidden" id="exec" name="exec" value="exclude">
-            </form>
-            <button type="submit" form="form4" class="cancelarBtn">Excluir</button>
-            <button id="cancelModalEditCar" class="cancelarBtn" onclick="cancelaConfirma()">Cancelar</button>
+            <button type="button" class="fallends2 cancelarBtn">Excluir</button>
+            <button id="cancelModalEditCar" class="cancelarBtn" onclick="fecha('modalConfirma')">Cancelar</button>
+        </div>
+    </div>
+</div>
+<div id="modalConfirmaReabrir" class="modal">
+    <div class="conteudo-modal modal-confirma">
+        <div class="header-modal">
+            <h3>Confirma</h3>
+            <span class="close" onclick="fecha('modalConfirmaReabrir')">&times</span>
+        </div>
+        <div class="body-modal">
+            <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+            <p class="pConfirma">Deseja reabrir esse Registro?</p>
+        </div>
+        <div class="footer-modal">
+            <button type="button" class="apskkpe cancelarBtn">Reabrir</button>
+            <button id="cancelModalEditCar" class="cancelarBtn"
+                onclick="fecha('modalConfirmaReabrir')">Cancelar</button>
         </div>
     </div>
 </div>
@@ -23,7 +35,7 @@
     <div class="conteudo-modal modal-confirma">
         <div class="header-modal">
             <h3>Finaliza</h3>
-            <span class="close" onclick="cancelaConfirma()">&times</span>
+            <span class="close" onclick="fecha('modalConfirma2')">&times</span>
         </div>
         <div class="body-modal">
             <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
@@ -47,7 +59,7 @@
 
             <button type="button" class="wemiseparrk adicionarBtn">Finalizar</button>
             <button id="cancelModalFinishCar" type="reset" class="cancelarBtn"
-                onclick="cancelaConfirma()">Cancelar</button>
+                onclick="fecha('modalConfirma2')">Cancelar</button>
         </div>
     </div>
 </div>

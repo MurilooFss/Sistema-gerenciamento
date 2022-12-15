@@ -2,7 +2,7 @@
     <div class="conteudo-modal">
         <div class="header-modal">
             <h3>Adicionar Veículo</h3>
-            <span class="close" onclick="fecha()">&times</span>
+            <span class="close" onclick="fecha('modalAddCar')">&times</span>
         </div>
         <div class="body-modal">
             <form id="form1" method="post">
@@ -54,7 +54,7 @@
         <div class="footer-modal">
             <button form="form1" type="submit" class="adicionarBtn">Adicionar</button>
             <button id="cancelModalAddCar" form="form1" type="reset" class="cancelarBtn"
-                onclick="cancela()">Cancelar</button>
+                onclick="fecha('modalAddCar')">Cancelar</button>
         </div>
     </div>
 </div>

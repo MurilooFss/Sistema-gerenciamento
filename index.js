@@ -55,6 +55,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/ativos', (req, res) => {
+    console.log(req.session)
     if (req.session.login) {
         (async () => {
             const id_estacionamento = req.session.id_estacionamento
