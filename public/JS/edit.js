@@ -7,36 +7,38 @@ document.querySelectorAll('.wxosppsaw').forEach(function (b) {
     })
 })
 function edit(idReq) {
-    const urlAPI = 'http://localhost:3000/'
-    let search = {
-        'id_carro': Number(idReq)
-    }
-    console.log(search)
-    modalEditCar.style.display = "block"
+    const urlAPI = 'http://localhost:5500/'
     axios.get(`${urlAPI}ativos/search`, { params: { id_carro: idReq } })
         .then((response) => {
-            idEdit.value = idReq
-            data = response.data[0]
-            marcaEdit.value = data.marca
-            modeloEdit.value = data.modelo
-            corEdit.value = data.cor
-            placaEdit.value = data.placa
-            telefoneEdit.value = data.telefone
-            if (data.tipo === 1) {
-                horaEdit.checked = true
+            if (response.data == '1') {
+                window.location.reload()
+            } else {
+                modalEditCar.style.display = "block"
+                console.log(response)
+                idEdit.value = idReq
+                data = response.data[0]
+                marcaEdit.value = data.marca
+                modeloEdit.value = data.modelo
+                corEdit.value = data.cor
+                placaEdit.value = data.placa
+                telefoneEdit.value = data.telefone
+                if (data.tipo === 1) {
+                    horaEdit.checked = true
+                }
+                if (data.tipo === 2) {
+                    periodoEdit.checked = true
+                }
+                if (data.tamanho === 3) {
+                    motoEdit.checked = true
+                }
+                if (data.tamanho === 2) {
+                    grandeEdit.checked = true
+                }
+                if (data.tamanho === 1) {
+                    padraoEdit.checked = true
+                }
             }
-            if (data.tipo === 2) {
-                periodoEdit.checked = true
-            }
-            if (data.tamanho === 3) {
-                motoEdit.checked = true
-            }
-            if (data.tamanho === 2) {
-                grandeEdit.checked = true
-            }
-            if (data.tamanho === 1) {
-                padraoEdit.checked = true
-            }
+
 
         })
         .catch((e) => console.error(e))

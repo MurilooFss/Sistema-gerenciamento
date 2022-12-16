@@ -1,3 +1,8 @@
 function exclude(id_carro, urlApi) {
-    axios.delete(`${urlApi}`, { params: { id_carro } }).then(window.location.reload())
+    (async () => {
+        let x = await axios.delete(`${urlApi}ativos/delete`, { params: { id_carro } });
+        location.reload()
+    })()
+
+
 }

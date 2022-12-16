@@ -3,6 +3,7 @@
     "alert": "^5.1.1",
     "axios": "^1.2.0",
     "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
@@ -26,6 +27,5 @@
     "url": "https://github.com/MurilooFss/Sistema-gerenciamento/issues"
   },
   "homepage": "https://github.com/MurilooFss/Sistema-gerenciamento#readme",
-  "devDependencies": {},
   "description": ""
 }

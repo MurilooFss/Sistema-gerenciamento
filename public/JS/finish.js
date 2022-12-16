@@ -8,7 +8,7 @@ document.querySelectorAll('.mrrfsrfss').forEach(function (b) {
 })
 
 function finish(id) {
-    const url = 'http://localhost:3000/'
+    const url = 'http://localhost:5500/'
     modalFinishTime.style.display = "block";
     axios.get(`${url}ativos/search`, { params: { id_carro: id } })
         .then((response) => {
@@ -47,7 +47,7 @@ document.querySelectorAll('.sfdkfd').forEach(function (b) {
 
 
 function calculeTime() {
-    const urlAPI = 'http://localhost:3000/'
+    const urlAPI = 'http://localhost:5500/'
     let payType = document.querySelector('input[name="payType"]:checked').value
     let lavagemIsChecked = 0
     let hInternaIsChecked = 0
