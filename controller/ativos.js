@@ -128,7 +128,12 @@ function deleteCar(req, res) {
 
 function calculeTime(req, res) {
     console.log(req.body)
-    //axios.put(`${urlAPI}ativos`, req.body)
+    axios.put(`${urlAPI}ativos`, req.body).then((r) => res.json(r.data))
+}
+function finishTime(req, res) {
+    const id_carro = req.body.id_carro
+    console.log(id_carro)
+    axios.put(`${urlAPI}ativos/finish`, { id_carro })
 }
 
-module.exports = { getActiveCars, registerCar, getCar, deleteCar, calculeTime }
+module.exports = { getActiveCars, registerCar, getCar, deleteCar, calculeTime, finishTime }

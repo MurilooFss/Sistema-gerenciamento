@@ -49,6 +49,7 @@ app.route('/ativos/search').get(ativos.getCar)
 app.route('/ativos/delete').delete(ativos.deleteCar)
 
 app.route('/ativos').put(ativos.calculeTime)
+app.route('/ativos/finish').put(ativos.finishTime)
 
 
 
