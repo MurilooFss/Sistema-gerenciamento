@@ -80,8 +80,11 @@ function calculeTime() {
 }
 
 function finishTime(id_carro, urlAPI) {
-    axios.put(`${urlAPI}ativos/finish`, { id_carro }).then(r => {
-        location.reload()
-    })
+    (async()=>{
+        await axios.put(`${urlAPI}ativos/finish`, { id_carro });
+        window.location.reload()
+    })()
+
+    
 
 }

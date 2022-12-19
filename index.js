@@ -15,8 +15,6 @@ const login = require('./controller/login')
 
 const port = 5500
 var path = require('path')
-const { redirect } = require('express/lib/response')
-const getActiveCars = require('./controller/ativos')
 const app = express()
 
 app.use(session({ secret: 'vmaunhgoqakfd321nmfdsre132' }))
@@ -29,9 +27,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, '/views'))
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/'), (req, res) => {
+app.route('/').get((req, res)=>{
     res.redirect('/login')
-}
+})
 
 app.route('/login').post(login.auth)
 
@@ -54,7 +52,8 @@ app.route('/ativos/finish').put(ativos.finishTime)
 
 
 app.route('/historico').get(hist.getHistory)
-
+app.route('/historico/detalhes').get(hist.getDetails)
+app.route('/historico/detalhes').put(hist.reOpen)
 
 
 

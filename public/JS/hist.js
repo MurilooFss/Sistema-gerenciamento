@@ -9,7 +9,7 @@ document.querySelectorAll('.hpseks').forEach(function (b) {
 
 })
 function getDetails(id_carro) {
-    const urlApi = 'http://localhost:3000/';
+    const urlApi = 'http://localhost:5500/';
 
     axios.get(`${urlApi}historico/detalhes`, { params: { id_carro } }).then((r) => {
         histDetails(r.data, urlApi)

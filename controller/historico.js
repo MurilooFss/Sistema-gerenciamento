@@ -37,4 +37,16 @@ function getHistory(req, res) {
     }
 }
 
-module.exports = { getHistory }
+function getDetails(req, res){
+    const id_carro = req.query.id_carro
+    axios.get(`${urlAPI}historico/detalhes`, { params: { id_carro } }).then((r)=>{
+        res.send(r.data)
+    })
+}
+
+function reOpen(req, res){
+    const id_carro =req.body.id_carro
+    axios.put(`${urlAPI}historico/detalhes`, { id_carro }).then(res.json('reaberto'))
+}
+
+module.exports = { getHistory, getDetails, reOpen }

@@ -2,7 +2,6 @@ const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
 
 function getActiveCars(req, res) {
-    console.log(req.session)
     if (req.session.login) {
         (async () => {
             const id_estacionamento = req.session.id_estacionamento
@@ -108,32 +107,47 @@ function registerCar(req, res) {
 }
 
 function getCar(req, res) {
-    if (req.session.login) {
-        console.log('func')
-        axios.get(`${urlAPI}ativos/search`, { params: { id_carro: req.query.id_carro } })
-            .then((r) => res.send(r.data))
-    }
-    else {
-        res.send('1')
-    }
+    console.log('func')
+    const id_carro = req.query.id_carro.idReq
+    console.log(id_carro)
 
+    axios.get(`${urlAPI}ativos/search`, { params: { id_carro } })
+        .then((r) => {
+            console.log(r.data)
+            res.send(r.data)
+        })
 }
 
 function deleteCar(req, res) {
     if (req.session.login) {
-        id_carro = req.query.id_carro
+        const id_carro = req.query.id_carro
+        console.log(id_carro)
         axios.delete(`${urlAPI}`, { params: { id_carro } }).then(res.send('removido'))
+    }else{
+        res.redirect('/login')
     }
 }
 
 function calculeTime(req, res) {
-    console.log(req.body)
-    axios.put(`${urlAPI}ativos`, req.body).then((r) => res.json(r.data))
+    if(req.session.login){
+        axios.put(`${urlAPI}ativos`, req.body).then((r) => res.json(r.data))
+    }else{
+        res.redirect('/login')
+    }
+    
 }
 function finishTime(req, res) {
-    const id_carro = req.body.id_carro
-    console.log(id_carro)
-    axios.put(`${urlAPI}ativos/finish`, { id_carro })
+    if(req.session.login){
+        const id_carro = req.body.id_carro
+        console.log(id_carro)
+        axios.put(`${urlAPI}ativos/finish`, { id_carro }).then((r)=>{
+            res.json('finalizado')
+        })
+    }
+    else{
+        res.redirect('/login')
+    }
+    
 }
 
 module.exports = { getActiveCars, registerCar, getCar, deleteCar, calculeTime, finishTime }
