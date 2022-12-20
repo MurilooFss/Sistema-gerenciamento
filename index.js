@@ -27,7 +27,25 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, '/views'))
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.route('/').get((req, res)=>{
+app.use((req, res, next) => {
+
+    if (req.url == '/login') {
+        console.log('login')
+        next()
+    } else {
+        if (req.session.login == undefined) {
+
+            res.redirect('/login')
+        } else {
+
+            next()
+        }
+
+    }
+
+})
+
+app.route('/').get((req, res) => {
     res.redirect('/login')
 })
 
