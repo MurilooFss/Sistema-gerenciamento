@@ -102,7 +102,7 @@ function registerCar(req, res) {
 }
 
 function getCar(req, res) {
-    console.log('func')
+    console.log(req.query.id_carro.idReq)
     const id_carro = req.query.id_carro.idReq
     console.log(id_carro)
 
