@@ -9,13 +9,18 @@ document.querySelectorAll('.mrrfsrfss').forEach(function (b) {
 
 function finish(idReq) {
     const url = 'http://localhost:5500/'
-    modalFinishTime.style.display = "block";
+
     const id_carro = { idReq }
     axios.get(`${url}ativos/search`, { params: { id_carro } })
         .then((response) => {
             console.log(response.data)
             idFinish.value = idReq
             result = response.data[0]
+            if (result.marca == undefined) {
+                window.location.reload()
+                return
+            }
+            modalFinishTime.style.display = "block";
             marcaFinish.value = result.marca
             modeloFinish.value = result.modelo
             corFinish.value = result.cor
