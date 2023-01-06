@@ -14,8 +14,14 @@ function finish(idReq) {
     axios.get(`${url}ativos/search`, { params: { id_carro } })
         .then((response) => {
             modalFinishTime.style.display = "block";
+
             idFinish.value = idReq
             result = response.data[0]
+            if (result.marca == undefined) {
+                window.location.reload()
+                return
+            }
+            modalFinishTime.style.display = "block";
             marcaFinish.value = result.marca
             modeloFinish.value = result.modelo
             corFinish.value = result.cor
