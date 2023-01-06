@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head.html'); %>
+
+    <body>
+        <%- include('../../partials/header.html'); %>
+            <main>
+                <h2>Estacionamento</h2>
+                <form action="post">
+                    <button type="button" id="psera">edit</button>
+
+                    <div class="vagas">
+                        <label for="vagas">Total de Vagas:</label>
+                        <input type="text" id="vagas" disabled value="<%=vagasTotais%>">
+                    </div>
+                    <div class="valores">
+                        <div class="valores-carro-p">
+                            <p>Carro pequeno</p>
+                            <label for="hora1-p">Hora 1:</label>
+                            <input type="text" id="hora1-p" disabled value="<%=hora1_carro_p%>">
+                            <label for="hora2-p">Hora 2:</label>
+                            <input type="text" id="hora2-p" disabled value="<%=hora2_carro_p%>">
+                            <label for="hora3-p">Hora 3:</label>
+                            <input type="text" id="hora3-p" disabled value="<%=hora3_carro_p%>">
+                            <label for="hora4-p">Hora 4:</label>
+                            <input type="text" id="hora4-p" disabled value="<%=hora4_carro_p%>">
+                        </div>
+                        <div class="valores-carro-g">
+                            <p>Carro Grande</p>
+                            <label for="hora1-g">Hora 1:</label>
+                            <input type="text" id="hora1-g" disabled value="<%=hora1_carro_g%>">
+                            <label for="hora2-g">Hora 2:</label>
+                            <input type="text" id="hora2-g" disabled value="<%=hora2_carro_g%>">
+                            <label for="hora3-g">Hora 3:</label>
+                            <input type="text" id="hora3-g" disabled value="<%=hora3_carro_g%>">
+                            <label for="hora4-g">Hora 4:</label>
+                            <input type="text" id="hora4-g" disabled value="<%=hora4_carro_g%>">
+
+                        </div>
+                        <div class="valores-moto">
+                            <p>Moto</p>
+                            <label for="hora1-moto">Hora 1:</label>
+                            <input type="text" id="hora1-moto" disabled value="<%=hora1_moto%>">
+                            <label for="hora2-moto">Hora 2:</label>
+                            <input type="text" id="hora2-moto" disabled value="<%=hora2_moto%>">
+                            <label for="hora3-moto">Hora 3:</label>
+                            <input type="text" id="hora3-moto" disabled value="<%=hora3_moto%>">
+                            <label for="hora4-moto">Hora 4:</label>
+                            <input type="text" id="hora4-moto" disabled value="<%=hora4_moto%>">
+
+                        </div>
+                    </div>
+                    <div class="convenios">
+                        <label for="nome-convenio">Nome Convenio</label>
+                        <input type="text" disabled value="farmácia" id="nome-convenio">
+                        <label for="porcentagem-desconto">Porcentagem Desconto</label>
+                        <input type="text" disabled value="5.0" id="porcentagem-desconto">
+                    </div>
+                    <button type="submit" disabled>Enviar</button>
+                    <button type="button" id="serr2as" disabled>Cancelar</button>
+                </form>
+            </main>
+            <script src="../../public/js/estacionamentoF.js"></script>
+
+    </body>
+
+</html>

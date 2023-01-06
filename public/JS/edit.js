@@ -8,9 +8,9 @@ document.querySelectorAll('.wxosppsaw').forEach(function (b) {
 })
 function edit(idReq) {
     const urlAPI = 'http://localhost:5500/'
-    const id_carro={idReq}
-
-    axios.get(`${urlAPI}ativos/search`, {params:{id_carro}})
+    const id_carro = { idReq }
+    console.log(id_carro)
+    axios.get(`${urlAPI}ativos/search`, { params: { id_carro } })
         .then((response) => {
             if (response.data == '1') {
                 window.location.reload()

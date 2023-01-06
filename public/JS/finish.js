@@ -7,12 +7,14 @@ document.querySelectorAll('.mrrfsrfss').forEach(function (b) {
     })
 })
 
-function finish(id) {
+function finish(idReq) {
     const url = 'http://localhost:5500/'
-    modalFinishTime.style.display = "block";
-    axios.get(`${url}ativos/search`, { params: { id_carro: id } })
+    const id_carro = { idReq }
+    console.log(id_carro)
+    axios.get(`${url}ativos/search`, { params: { id_carro } })
         .then((response) => {
-            idFinish.value = id
+            modalFinishTime.style.display = "block";
+            idFinish.value = idReq
             result = response.data[0]
             marcaFinish.value = result.marca
             modeloFinish.value = result.modelo
@@ -80,11 +82,11 @@ function calculeTime() {
 }
 
 function finishTime(id_carro, urlAPI) {
-    (async()=>{
+    (async () => {
         await axios.put(`${urlAPI}ativos/finish`, { id_carro });
         window.location.reload()
     })()
 
-    
+
 
 }

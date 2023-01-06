@@ -9,6 +9,7 @@ const cors = require('cors')
 const hist = require('./controller/historico')
 const ativos = require('./controller/ativos')
 const login = require('./controller/login')
+const estacionamento = require('./controller/estacionamento')
 
 
 
@@ -27,7 +28,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, '/views'))
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.route('/').get((req, res)=>{
+app.route('/').get((req, res) => {
     res.redirect('/login')
 })
 
@@ -54,6 +55,9 @@ app.route('/ativos/finish').put(ativos.finishTime)
 app.route('/historico').get(hist.getHistory)
 app.route('/historico/detalhes').get(hist.getDetails)
 app.route('/historico/detalhes').put(hist.reOpen)
+
+
+app.route('/estacionamento').get(estacionamento.parkingDetails)
 
 
 
