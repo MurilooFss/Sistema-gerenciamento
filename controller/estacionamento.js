@@ -5,9 +5,11 @@ function parkingDetails(req, res) {
     if (req.session.login) {
         (async () => {
             const id_estacionamento = req.session.id_estacionamento
-            let data = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
-            let cars = data.data.carros
-            let vagas = data.data.vagas.vagas
+            let values = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
+            const data = values.data
+            //console.log(data)
+            let cars = data.carros
+            let vagas = data.vagas.vagas
             var vagasDisponiveis = vagas - (cars.length)
             req.session.vagasDisponiveis = vagasDisponiveis
 

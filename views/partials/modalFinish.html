@@ -54,10 +54,11 @@
                         <p>Convênio:</p>
                         <select name="convenio" id="convenio">
                             <option value="0">Nenhum</option>
-                            <option value="1">Hospital</option>
-                            <option value="2">Clínica</option>
-                            <option value="3">Loja</option>
-                            <option value="4">Farmácia</option>
+                            <% convenios.forEach(function(conv) {%>
+                                <option value="<%=Number(conv.id_convenio)%>">
+                                    <%=conv.empresa_convenio%>
+                                </option>
+                                <%})%>
                         </select>
                         <p>Desconto:</p>
                         <select name="desconto" id="desconto">

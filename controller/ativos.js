@@ -2,36 +2,45 @@ const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
 
 function getActiveCars(req, res) {
-
-    (async () => {
-        const id_estacionamento = req.session.id_estacionamento
-        let data = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
-        let cars = data.data.carros
-        let vagas = data.data.vagas.vagas
-        var vagasDisponiveis = vagas - (cars.length)
-        req.session.vagasDisponiveis = vagasDisponiveis
-        for (const iterator of cars) {
-            iterator.hora_entrada = converteHora(iterator.hora_entrada)
-            function converteHora(horaInicial) {
-                const dt = new Date(Number(horaInicial));
-                let hr = dt.getHours();
-                let m = dt.getMinutes();
-                if (m < 10) {
-                    m = '0' + m
+    if (req.session.login) {
+        (async () => {
+            const id_estacionamento = req.session.id_estacionamento
+            let values = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
+            data = values.data
+            //console.log(data)
+            let cars = data.carros
+            let vagas = data.vagas.vagas
+            console.log(vagas)
+            var vagasDisponiveis = vagas - (cars.length)
+            req.session.vagasDisponiveis = vagasDisponiveis
+            for (const iterator of cars) {
+                iterator.hora_entrada = converteHora(iterator.hora_entrada)
+                function converteHora(horaInicial) {
+                    const dt = new Date(Number(horaInicial));
+                    let hr = dt.getHours();
+                    let m = dt.getMinutes();
+                    if (m < 10) {
+                        m = '0' + m
+                    }
+                    if (hr < 10) {
+                        hr = '0' + hr
+                    }
+                    return hr + ':' + m
                 }
-                if (hr < 10) {
-                    hr = '0' + hr
-                }
-
-                return hr + ':' + m
             }
-        }
-        res.render('pages/ativos/ativos', {
-            values: cars,
-            vagas: vagasDisponiveis
-        })
+            console.log(data.convenio)
+            res.render('pages/ativos/ativos', {
+                values: cars,
+                vagas: vagasDisponiveis,
+                convenios: data.convenio
+            })
 
-    })()
+        })()
+    } else {
+        res.redirect('/login')
+    }
+
+
 
 }
 
