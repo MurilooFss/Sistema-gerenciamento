@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head.html'); %>
+
+    <body>
+        <%- include('../../partials/header.html'); %>
+            <main>
+                <h2>Convenios</h2>
+                <section class="convenios cars-history">
+                    <% values.forEach(function(conv) {%>
+                        <div class="">
+                            <div class="row">
+                                <div class="content">
+                                    <p>
+                                        <strong>#<%=conv.id_convenio%></strong>
+                                    </p>
+                                    <p>
+                                        Título convênio: <strong>
+                                            <%=conv.empresa_convenio%>
+                                        </strong>
+
+                                    </p>
+                                    <p>
+                                        Desconto: <%=conv.desconto%>
+                                    </p>
+
+                                </div>
+                                <div class="hpseks <%=conv.id_convenio%>">></div>
+                            </div>
+                        </div>
+                        <%})%>
+                </section>
+                <form method="post" class="addConv">
+                    <label for="empresa_convenio">Título convênio</label>
+                    <input type="text" name="empresa_convenio" id="empresa_convenio">
+                    <label for="desconto">Desconto</label>
+                    <input type="text" name="desconto" id="desconto">%
+                    <button type="submit">Salvar</button>
+                    <button type="reset" id="canc">Cancelar</button>
+                </form>
+                <button class="asdeew poerrr" onclick="showForm()">Add</button>
+
+            </main>
+    </body>
+    <script src="/public/JS/convF.js"></script>
+
+</html>

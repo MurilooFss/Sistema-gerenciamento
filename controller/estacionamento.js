@@ -1,23 +1,17 @@
 const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
+const loader = require('./loader')
 
 function parkingDetails(req, res) {
     if (req.session.login) {
         (async () => {
             const id_estacionamento = req.session.id_estacionamento
-            let values = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
-            const data = values.data
-            //console.log(data)
-            let cars = data.carros
-            let vagas = data.vagas.vagas
-            var vagasDisponiveis = vagas - (cars.length)
-            req.session.vagasDisponiveis = vagasDisponiveis
-
+            const data = await loader.loadData(req, res)
             let estacionamento = await axios.get(`${urlAPI}estacionamento`, { params: { id_estacionamento } })
             let eData = estacionamento.data
             res.render('pages/estacionamento/estacionamento', {
-                vagasTotais: vagas,
-                vagas: vagasDisponiveis,
+                vagasTotais: data.vagas,
+                vagas: data.vagasDisponiveis,
                 hora1_carro_p: eData.hora1_carro_p,
                 hora2_carro_p: eData.hora2_carro_p,
                 hora3_carro_p: eData.hora3_carro_p,

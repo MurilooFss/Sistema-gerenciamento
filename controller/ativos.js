@@ -1,19 +1,12 @@
 const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
+const loader = require('./loader')
 
 function getActiveCars(req, res) {
     if (req.session.login) {
         (async () => {
-            const id_estacionamento = req.session.id_estacionamento
-            let values = await axios.get(`${urlAPI}ativos`, { params: { id_estacionamento } })
-            data = values.data
-            //console.log(data)
-            let cars = data.carros
-            let vagas = data.vagas.vagas
-            console.log(vagas)
-            var vagasDisponiveis = vagas - (cars.length)
-            req.session.vagasDisponiveis = vagasDisponiveis
-            for (const iterator of cars) {
+            const data = await loader.loadData(req, res)
+            for (const iterator of data.cars) {
                 iterator.hora_entrada = converteHora(iterator.hora_entrada)
                 function converteHora(horaInicial) {
                     const dt = new Date(Number(horaInicial));
@@ -28,10 +21,9 @@ function getActiveCars(req, res) {
                     return hr + ':' + m
                 }
             }
-            console.log(data.convenio)
             res.render('pages/ativos/ativos', {
-                values: cars,
-                vagas: vagasDisponiveis,
+                values: data.cars,
+                vagas: data.vagasDisponiveis,
                 convenios: data.convenio
             })
 

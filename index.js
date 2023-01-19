@@ -10,6 +10,7 @@ const hist = require('./controller/historico')
 const ativos = require('./controller/ativos')
 const login = require('./controller/login')
 const estacionamento = require('./controller/estacionamento')
+const convenios = require('./controller/convenios')
 
 
 
@@ -60,6 +61,8 @@ app.route('/historico/detalhes').put(hist.reOpen)
 app.route('/estacionamento').get(estacionamento.parkingDetails)
 app.route('/estacionamento').post(estacionamento.updateData)
 
+app.route('/convenios').get(convenios.getConv)
+app.route('/convenios').post(convenios.addConv)
 
 
 
