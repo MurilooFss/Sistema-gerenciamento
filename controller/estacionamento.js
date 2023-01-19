@@ -39,4 +39,35 @@ function parkingDetails(req, res) {
 
 }
 
-module.exports = { parkingDetails }
+function updateData(req, res) {
+    if (req.session.login) {
+
+        const data = req.body
+        const values = {
+            id_estacionamento: req.session.id_estacionamento,
+            vagas: data.vagas,
+            hora1_carro_p: data.hora1_p,
+            hora2_carro_p: data.hora2_p,
+            hora3_carro_p: data.hora3_p,
+            hora4_carro_p: data.hora4_p,
+            hora1_carro_g: data.hora1_g,
+            hora2_carro_g: data.hora2_g,
+            hora3_carro_g: data.hora3_g,
+            hora4_carro_g: data.hora4_g,
+            hora1_moto: data.hora1_moto,
+            hora2_moto: data.hora2_moto,
+            hora3_moto: data.hora3_moto,
+            hora4_moto: data.hora4_moto
+        }
+        axios.put(`${urlAPI}estacionamento`, values).then(r => {
+            res.redirect('/estacionamento')
+        }).catch(e => {
+            console.log(e)
+        })
+    } else {
+        res.redirect('/login')
+    }
+
+}
+
+module.exports = { parkingDetails, updateData }

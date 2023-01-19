@@ -58,6 +58,7 @@ app.route('/historico/detalhes').put(hist.reOpen)
 
 
 app.route('/estacionamento').get(estacionamento.parkingDetails)
+app.route('/estacionamento').post(estacionamento.updateData)
 
 
 
