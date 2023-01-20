@@ -6,6 +6,16 @@
         <%- include('../../partials/header.html'); %>
             <main>
                 <h2>Convenios</h2>
+                <form method="post" class="addConv">
+                    <label for="empresa_convenio">Título convênio</label>
+                    <input type="text" name="empresa_convenio" id="empresa_convenio">
+                    <label for="desconto">Desconto</label>
+                    <input type="text" name="desconto" id="desconto">%
+                    <button type="submit">Salvar</button>
+                    <button type="reset" id="canc">Cancelar</button>
+                </form>
+                <button class="asdeew poerrr" onclick="showForm()">Add</button>
+
                 <section class="convenios cars-history">
                     <% values.forEach(function(conv) {%>
                         <div class="">
@@ -30,15 +40,6 @@
                         </div>
                         <%})%>
                 </section>
-                <form method="post" class="addConv">
-                    <label for="empresa_convenio">Título convênio</label>
-                    <input type="text" name="empresa_convenio" id="empresa_convenio">
-                    <label for="desconto">Desconto</label>
-                    <input type="text" name="desconto" id="desconto">%
-                    <button type="submit">Salvar</button>
-                    <button type="reset" id="canc">Cancelar</button>
-                </form>
-                <button class="asdeew poerrr" onclick="showForm()">Add</button>
 
             </main>
     </body>
