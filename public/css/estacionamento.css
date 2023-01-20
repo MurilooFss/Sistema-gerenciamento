@@ -1,0 +1,87 @@
+h4 {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+form input {
+    display: block;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    border: 2px solid gray;
+    padding-left: 15px;
+}
+
+form input:disabled {
+    border-color: grey;
+    background-color: rgb(211, 211, 211);
+    border: 2px solid gray;
+}
+
+form {
+    width: fit-content;
+    margin: auto;
+}
+
+.valores {
+    margin-bottom: 20px;
+}
+
+.btn {
+    max-width: fit-content;
+    margin: auto;
+}
+
+.botao {
+    width: 90px;
+    height: 40px;
+    border: none;
+    color: var(--white);
+    font-size: 1rem;
+    font-family: poppins, sans-serif;
+    border-radius: 10px;
+}
+
+.enviar {
+    background-color: var(--confirmColor);
+}
+
+.cancelar {
+    background-color: var(--cancelColor);
+}
+
+.editar {
+    background-color: var(--editColor);
+}
+
+.enviar,
+.cancelar {
+    display: none;
+}
+
+.item {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1rem;
+    font-family: poppins, sans-serif;
+    font-weight: 700;
+    background-color: #fff;
+    border-bottom: 1px solid gray;
+}
+
+.vagas {
+    padding: 0 18px;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
