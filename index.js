@@ -36,6 +36,7 @@ app.route('/').get((req, res) => {
 app.route('/login').post(login.auth)
 
 app.route('/login').get(login.getLoginPage)
+app.route('/login/previlege').get(login.isAdmin)
 
 
 

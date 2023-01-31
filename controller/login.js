@@ -23,8 +23,16 @@ function auth(req, res) {
     }
     authUser(email, password, urlAPI)
 }
+function isAdmin(req, res) {
+    (async () => {
+        const email = req.query.email
+        const password = req.query.password
+        const response = await verifyPrevilege(email, password)
+        res.send(response)
+    })()
+}
 function verifyPrevilege(email, password) {
-    console.log(email, password)
+
 
 
     async function authPrevilege(email, password, urlAPI) {
@@ -53,4 +61,4 @@ function getLoginPage(req, res) {
     }
 }
 
-module.exports = { auth, getLoginPage, verifyPrevilege }
+module.exports = { auth, getLoginPage, verifyPrevilege, isAdmin }

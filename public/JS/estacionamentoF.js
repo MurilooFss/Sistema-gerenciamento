@@ -1,22 +1,48 @@
+const urlAPI = 'http://localhost:5500/'
+
 document.querySelectorAll('#psera').forEach(function (b) {
     b.addEventListener('click', (e) => {
-        document.querySelectorAll('input').forEach(i => {
-            i.disabled = false
+        modalAdmin.style.display = 'block'
+        let aut = document.querySelector('.pseroiia')
+        aut.addEventListener('click', () => {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('pwd').value;
+            (async () => {
+                let isAdmin = await axios.get(`${urlAPI}login/previlege`, { params: { email, password } })
+                if (isAdmin.data == true) {
+                    document.querySelectorAll('input').forEach(i => {
+                        i.disabled = false
+
+                    })
+                    document.querySelectorAll('button').forEach(i => {
+                        i.disabled = false
+                        i.style.display = 'inline-block'
+
+                    })
+                    modalAdmin.style.display = 'none'
+                    psera.style.display = 'none'
+                } else {
+                    window.alert('Suas credenciais falharam!')
+                }
+
+            })()
+
 
         })
-        document.querySelectorAll('button').forEach(i => {
-            i.disabled = false
-            i.style.display = 'inline-block'
 
-        }
 
-        )
-        psera.style.display = 'none'
+
 
     })
 })
 
+cancelModalAdmin.addEventListener('click', () => {
+    fechaModal()
 
+})
+function fechaModal() {
+    location.reload()
+}
 document.querySelectorAll('#serr2as').forEach(function (b) {
     b.addEventListener('click', (e) => {
         window.location.reload()
