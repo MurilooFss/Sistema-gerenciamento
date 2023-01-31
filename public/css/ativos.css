@@ -31,12 +31,6 @@ div.cars-data::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-main {
-    width: 70vw;
-    margin: auto;
-    overflow: hidden;
-}
-
 h2 {
     text-align: center;
 }

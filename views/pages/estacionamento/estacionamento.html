@@ -4,88 +4,102 @@
 
     <body>
         <%- include('../../partials/header.html'); %>
-            <main>
-                <h2>Estacionamento</h2>
-                <form method="post">
+            <div class="page-container">
+                <main>
+                    <h2>Estacionamento</h2>
+                    <form method="post">
 
-                    <fieldset>
-                        <div class="vagas">
-                            <label for="vagas">
-                                <h4>Total de Vagas:</h4>
-                            </label>
-                            <input type="text" id="vagas" name="vagas" disabled value="<%=vagasTotais%>">
-                        </div>
-                        <div class="valores">
-                            <div class=" valores-carro-p">
-                                <button type="button" class="item">
-                                    Carro pequeno &#9660;
-                                </button>
-                                <div class="content">
-                                    <label for="hora1-p">Hora 1:</label>
-                                    <input type="text" id="hora1-p" name="hora1_p" disabled value="<%=hora1_carro_p%>">
-                                    <label for="hora2-p">Hora 2:</label>
-                                    <input type="text" id="hora2-p" name="hora2_p" disabled value="<%=hora2_carro_p%>">
-                                    <label for="hora3-p">Hora 3:</label>
-                                    <input type="text" id="hora3-p" name="hora3_p" disabled value="<%=hora3_carro_p%>">
-                                    <label for="hora4-p">Hora 4:</label>
-                                    <input type="text" id="hora4-p" name="hora4_p" disabled value="<%=hora4_carro_p%>">
+                        <fieldset>
+                            <div class="vagas">
+                                <label for="vagas">
+                                    <h4>Total de Vagas:</h4>
+                                </label>
+                                <input type="text" id="vagas" name="vagas" disabled value="<%=vagasTotais%>">
+                            </div>
+                            <div class="valores">
+                                <div class=" valores-carro-p">
+                                    <button type="button" class="item">
+                                        Carro pequeno &#9660;
+                                    </button>
+                                    <div class="content">
+                                        <label for="hora1-p">Hora 1:</label>
+                                        <input type="text" id="hora1-p" name="hora1_p" disabled
+                                            value="<%=hora1_carro_p%>">
+                                        <label for="hora2-p">Hora 2:</label>
+                                        <input type="text" id="hora2-p" name="hora2_p" disabled
+                                            value="<%=hora2_carro_p%>">
+                                        <label for="hora3-p">Hora 3:</label>
+                                        <input type="text" id="hora3-p" name="hora3_p" disabled
+                                            value="<%=hora3_carro_p%>">
+                                        <label for="hora4-p">Hora 4:</label>
+                                        <input type="text" id="hora4-p" name="hora4_p" disabled
+                                            value="<%=hora4_carro_p%>">
+                                    </div>
+
+
                                 </div>
+                                <div class="valores-carro-g">
+                                    <button type="button" class="item">
+                                        Carro Grande &#9660;
+                                    </button>
+                                    <div class="content">
+                                        <label for="hora1-g">Hora 1:</label>
+                                        <input type="text" id="hora1-g" name="hora1_g" disabled
+                                            value="<%=hora1_carro_g%>">
+                                        <label for="hora2-g">Hora 2:</label>
+                                        <input type="text" id="hora2-g" name="hora2_g" disabled
+                                            value="<%=hora2_carro_g%>">
+                                        <label for="hora3-g">Hora 3:</label>
+                                        <input type="text" id="hora3-g" name="hora3_g" disabled
+                                            value="<%=hora3_carro_g%>">
+                                        <label for="hora4-g">Hora 4:</label>
+                                        <input type="text" id="hora4-g" name="hora4_g" disabled
+                                            value="<%=hora4_carro_g%>">
+                                    </div>
 
+
+
+                                </div>
+                                <div class="valores-moto">
+                                    <button type="button" class="item">
+                                        Moto &#9660;
+                                    </button>
+                                    <div class="content">
+                                        <label for="hora1-moto">Hora 1:</label>
+                                        <input type="text" id="hora1-moto" name="hora1_moto" disabled
+                                            value="<%=hora1_moto%>">
+                                        <label for="hora2-moto">Hora 2:</label>
+                                        <input type="text" id="hora2-moto" name="hora2_moto" disabled
+                                            value="<%=hora2_moto%>">
+                                        <label for="hora3-moto">Hora 3:</label>
+                                        <input type="text" id="hora3-moto" name="hora3_moto" disabled
+                                            value="<%=hora3_moto%>">
+                                        <label for="hora4-moto">Hora 4:</label>
+                                        <input type="text" id="hora4-moto" name="hora4_moto" disabled
+                                            value="<%=hora4_moto%>">
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="btn">
+                                <button type="button" class="botao editar" id="psera">Editar</button>
+                                <button type="submit" class='botao alter enviar' disabled>Salvar</button>
+                                <button type="reset" class="botao alter cancelar" id="serr2as"
+                                    disabled>Cancelar</button>
 
                             </div>
-                            <div class="valores-carro-g">
-                                <button type="button" class="item">
-                                    Carro Grande &#9660;
-                                </button>
-                                <div class="content">
-                                    <label for="hora1-g">Hora 1:</label>
-                                    <input type="text" id="hora1-g" name="hora1_g" disabled value="<%=hora1_carro_g%>">
-                                    <label for="hora2-g">Hora 2:</label>
-                                    <input type="text" id="hora2-g" name="hora2_g" disabled value="<%=hora2_carro_g%>">
-                                    <label for="hora3-g">Hora 3:</label>
-                                    <input type="text" id="hora3-g" name="hora3_g" disabled value="<%=hora3_carro_g%>">
-                                    <label for="hora4-g">Hora 4:</label>
-                                    <input type="text" id="hora4-g" name="hora4_g" disabled value="<%=hora4_carro_g%>">
-                                </div>
 
+                        </fieldset>
+                    </form>
+                </main>
+                <%- include('../../partials/footer.html'); %>
+            </div>
 
-
-                            </div>
-                            <div class="valores-moto">
-                                <button type="button" class="item">
-                                    Moto &#9660;
-                                </button>
-                                <div class="content">
-                                    <label for="hora1-moto">Hora 1:</label>
-                                    <input type="text" id="hora1-moto" name="hora1_moto" disabled
-                                        value="<%=hora1_moto%>">
-                                    <label for="hora2-moto">Hora 2:</label>
-                                    <input type="text" id="hora2-moto" name="hora2_moto" disabled
-                                        value="<%=hora2_moto%>">
-                                    <label for="hora3-moto">Hora 3:</label>
-                                    <input type="text" id="hora3-moto" name="hora3_moto" disabled
-                                        value="<%=hora3_moto%>">
-                                    <label for="hora4-moto">Hora 4:</label>
-                                    <input type="text" id="hora4-moto" name="hora4_moto" disabled
-                                        value="<%=hora4_moto%>">
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <button type="button" class="botao editar" id="psera">Editar</button>
-                            <button type="submit" class='botao enviar' disabled>Salvar</button>
-                            <button type="button" class="botao cancelar" id="serr2as" disabled>Cancelar</button>
-
-                        </div>
-
-                    </fieldset>
-                </form>
-            </main>
             <script src="../../public/js/estacionamentoF.js"></script>
             <link rel="stylesheet" href="../../../public/css/estacionamento.css">
+
     </body>
 
 </html>

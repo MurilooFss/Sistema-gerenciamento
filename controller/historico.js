@@ -1,5 +1,6 @@
 const urlAPI = 'http://localhost:3000/'
 const axios = require('axios')
+const { verifyPrevilege } = require('./login')
 
 function getHistory(req, res) {
     if (req.session.login) {
@@ -37,16 +38,41 @@ function getHistory(req, res) {
     }
 }
 
-function getDetails(req, res){
+function getDetails(req, res) {
     const id_carro = req.query.id_carro
-    axios.get(`${urlAPI}historico/detalhes`, { params: { id_carro } }).then((r)=>{
+    axios.get(`${urlAPI}historico/detalhes`, { params: { id_carro } }).then((r) => {
         res.send(r.data)
     })
 }
 
-function reOpen(req, res){
-    const id_carro =req.body.id_carro
-    axios.put(`${urlAPI}historico/detalhes`, { id_carro }).then(res.json('reaberto'))
+function reOpen(req, res) {
+    (async () => {
+        const id_carro = req.body.id_carro
+        const email = req.body.email
+        const password = req.body.password
+        const previlege = await verifyPrevilege(email, password)
+        if (previlege) {
+            axios.put(`${urlAPI}historico/detalhes`, { id_carro }).then(res.json('reaberto'))
+        } else {
+            res.sendStatus(401)
+        }
+    })()
+}
+function deleteCarHistory(req, res) {
+    (async () => {
+
+        const id_carro = req.body.id_carro
+        const email = req.body.email
+        const password = req.body.password
+
+        const previlege = await verifyPrevilege(email, password)
+        if (previlege) {
+            axios.delete(`${urlAPI}`, { params: { id_carro } }).then(res.send('removido'))
+        } else {
+            res.sendStatus(401)
+        }
+    })()
+
 }
 
-module.exports = { getHistory, getDetails, reOpen }
+module.exports = { getHistory, getDetails, reOpen, deleteCarHistory }

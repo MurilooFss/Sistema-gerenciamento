@@ -56,6 +56,7 @@ app.route('/ativos/finish').put(ativos.finishTime)
 app.route('/historico').get(hist.getHistory)
 app.route('/historico/detalhes').get(hist.getDetails)
 app.route('/historico/detalhes').put(hist.reOpen)
+app.route('/historico/delete').put(hist.deleteCarHistory)
 
 
 app.route('/estacionamento').get(estacionamento.parkingDetails)

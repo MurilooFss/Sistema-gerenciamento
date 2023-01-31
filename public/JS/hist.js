@@ -41,7 +41,9 @@ function histDetails(car, urlApi) {
     })
     document.querySelectorAll('.apskkpe').forEach(function (b) {
         b.addEventListener('click', (e) => {
-            reOpen(car.id_carro, urlApi)
+            let email = document.getElementById('emailReopen').value
+            let password = document.getElementById('pwdReopen').value
+            reOpen(car.id_carro, urlApi, email, password)
         })
     })
     document.querySelectorAll('.parwwql').forEach(function (b) {
@@ -50,14 +52,26 @@ function histDetails(car, urlApi) {
         })
     })
     document.querySelectorAll('.fallends2').forEach(function (b) {
+
+
         b.addEventListener('click', (e) => {
-            exclude(car.id_carro, urlApi)
+            let emailEx = document.getElementById('emailEx').value
+            let passwordEx = document.getElementById('pwdEx').value
+            exclude(car.id_carro, urlApi, emailEx, passwordEx)
         })
     })
 
 }
-function reOpen(id_carro, urlApi) {
-    axios.put(`${urlApi}historico/detalhes`, { id_carro }).then(window.location.reload()).catch((e) => console.log(e))
+function reOpen(id_carro, urlApi, email, password) {
+    axios.put(`${urlApi}historico/detalhes`, { id_carro, email, password }).then((r) => {
+        if (r.data) {
+            window.location.reload()
+        }
+    }).catch((e) => {
+        if (e.response.status == 401) {
+            window.alert('senha errada!!!!')
+        }
+    })
 
 }
 

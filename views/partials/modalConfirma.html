@@ -5,8 +5,13 @@
             <span class="close" onclick="fecha('modalConfirma')">&times</span>
         </div>
         <div class="body-modal">
-            <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+            <!-- <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;"> -->
             <p class="pConfirma">Deseja excluir esse Registro?</p>
+            <p>Para reabrir esse registro adicione uma credencial de administrador:</p>
+            <label for="emailEx">Email:</label>
+            <input type="email" id="emailEx">
+            <label for="pwdEx">Senha:</label>
+            <input type="password" id="pwdEx">
         </div>
         <div class="footer-modal">
             <button type="button" class="fallends2 cancelarBtn">Excluir</button>
@@ -21,8 +26,13 @@
             <span class="close" onclick="fecha('modalConfirmaReabrir')">&times</span>
         </div>
         <div class="body-modal">
-            <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+            <!-- <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;"> -->
             <p class="pConfirma">Deseja reabrir esse Registro?</p>
+            <p>Para reabrir esse registro adicione uma credencial de administrador:</p>
+            <label for="emailReopen">Email:</label>
+            <input type="email" id="emailReopen">
+            <label for="pwdReopen">Senha:</label>
+            <input type="password" id="pwdReopen">
         </div>
         <div class="footer-modal">
             <button type="button" class="apskkpe cancelarBtn">Reabrir</button>
@@ -38,7 +48,7 @@
             <span class="close" onclick="fecha('modalConfirma2')">&times</span>
         </div>
         <div class="body-modal">
-            <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;">
+            <!-- <input type="text" name="idConfirma" id="idConfirma" disabled style="display: none;"> -->
             <p class="pConfirma">Deseja finalizar esse Registro?</p>
             <input type="hidden" id="confirmaFinish" name="id_carro">
             <input type="hidden" id="act" name="act" value="3">

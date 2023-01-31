@@ -7,10 +7,10 @@ document.querySelectorAll('.wxosppsaw').forEach(function (b) {
     })
 })
 function edit(idReq) {
-    const urlAPI = 'http://localhost:5500/'
+    const urlApi = 'http://localhost:5500/'
     const id_carro = { idReq }
 
-    axios.get(`${urlAPI}ativos/search`, { params: { id_carro } })
+    axios.get(`${urlApi}ativos/search`, { params: { id_carro } })
         .then((response) => {
             if (response.data[0].marca == undefined) {
                 window.location.reload()
@@ -46,7 +46,13 @@ function edit(idReq) {
         .catch((e) => console.error(e))
     document.querySelectorAll('.fallends2').forEach(function (b) {
         b.addEventListener('click', (e) => {
-            exclude(idReq, urlAPI)
+
+            let emailEx = document.getElementById('emailEx').value
+            let passwordEx = document.getElementById('pwdEx').value
+            console.log(emailEx, passwordEx)
+
+            exclude(idReq, urlApi, emailEx, passwordEx)
+
         })
     })
 }

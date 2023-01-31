@@ -5,79 +5,84 @@
 
     <body>
         <%- include('../../partials/header.html'); %>
-            <main>
-                <h2>Ativos</h2>
+            <div class="page-container">
+                <main>
+                    <h2>Ativos</h2>
 
-                <input type="text" id="search" onkeyup="find()">
-                <br>
+                    <input type="text" id="search" onkeyup="find()">
+                    <br>
 
 
 
-                <div class="cars-data">
+                    <div class="cars-data">
 
-                    <% values.forEach(function(carro) {%>
-                        <div class="car">
-                            <div class="content-title">
-                                <p>
-                                    <strong>#<%=carro.id_carro%></strong>
-                                </p>
-                                <div class="buttons">
-                                    <a class="openModalFinish mrrfsrfss <%=Number(carro.id_carro)%>"></a>
-                                    <a class="wxosppsaw <%=Number(carro.id_carro)%>"></a>
-                                    <a class="zap <%=Number(carro.id_carro)%>"></a>
+                        <% values.forEach(function(carro) {%>
+                            <div class="car">
+                                <div class="content-title">
+                                    <p>
+                                        <strong>#<%=carro.id_carro%></strong>
+                                    </p>
+                                    <div class="buttons">
+                                        <a class="openModalFinish mrrfsrfss <%=Number(carro.id_carro)%>"></a>
+                                        <a class="wxosppsaw <%=Number(carro.id_carro)%>"></a>
+                                        <a class="zap <%=Number(carro.id_carro)%>"></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
+                                <hr>
 
-                            <div class="data">
+                                <div class="data">
 
 
-                                <p>
-                                    <%=carro.marca%>
-                                        <%=carro.modelo%>
-                                </p>
-                                <p>
-                                    <%=carro.cor%>
-                                </p>
-                                <p>
-                                    <%=carro.placa%>
-                                </p>
-                                <p>
-                                    <% if(carro.tipo==1){%>
-                                        HORA
-                                        <%}else{%>
-                                            PERÍODO
-                                            <% }%>
-                                </p>
-                                <p>
-                                    <% if(carro.tamanho==1){%>
-                                        PADRÃO
-                                        <%}else if(carro.tamanho==2){%>
-                                            GRANDE
-                                            <% }else{%>
-                                                MOTO
+                                    <p>
+                                        <%=carro.marca%>
+                                            <%=carro.modelo%>
+                                    </p>
+                                    <p>
+                                        <%=carro.cor%>
+                                    </p>
+                                    <p>
+                                        <%=carro.placa%>
+                                    </p>
+                                    <p>
+                                        <% if(carro.tipo==1){%>
+                                            HORA
+                                            <%}else{%>
+                                                PERÍODO
                                                 <% }%>
-                                </p>
-                                <p>
-                                    <%=carro.hora_entrada%>
-                                </p>
+                                    </p>
+                                    <p>
+                                        <% if(carro.tamanho==1){%>
+                                            PADRÃO
+                                            <%}else if(carro.tamanho==2){%>
+                                                GRANDE
+                                                <% }else{%>
+                                                    MOTO
+                                                    <% }%>
+                                    </p>
+                                    <p>
+                                        <%=carro.hora_entrada%>
+                                    </p>
+
+
+                                </div>
+
+
 
 
                             </div>
+                            <%})%>
 
+                    </div>
+                    <button id="openModalAddCar" class="adicionar" onclick="add()">add</button>
+                    <%- include('../../partials/modalAdd.html'); %>
+                        <%- include('../../partials/modalFinish.html'); %>
+                            <%- include('../../partials/modalEdit.html'); %>
+                                <%- include('../../partials/modalConfirma.html'); %>
 
+                </main>
+                <%- include('../../partials/footer.html'); %>
+            </div>
 
-
-                        </div>
-                        <%})%>
-
-                </div>
-                <button id="openModalAddCar" class="adicionar" onclick="add()">add</button>
-                <%- include('../../partials/modalAdd.html'); %>
-                    <%- include('../../partials/modalFinish.html'); %>
-                        <%- include('../../partials/modalEdit.html'); %>
-                            <%- include('../../partials/modalConfirma.html'); %>
-            </main>
             <script src="../../public/js/edit.js"></script>
             <script src="../../public/js/finish.js"></script>
             <script src="../../public/js/remove.js"></script>

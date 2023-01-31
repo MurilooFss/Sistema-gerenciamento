@@ -5,36 +5,40 @@
 
     <body>
         <%- include('../../partials/header.html'); %>
-            <main>
-                <h2>Histórico</h2>
-                <input type="text" id="search" class="search2" onkeyup="find2()">
-                <section class="cars-history">
-                    <% values.forEach(function(carro) {%>
-                        <div class="">
-                            <div class="row">
-                                <div class="content">
-                                    <p>
-                                        <strong>#<%=carro.id_carro%></strong>
-                                    </p>
-                                    <p>
-                                        <%=carro.marca%>
-                                            <%=carro.modelo%> -
-                                                <%=carro.placa%>
-                                    </p>
-                                    <p>
-                                        <%=carro.hora_entrada%> ~ <%=carro.hora_saida%>
-                                    </p>
-                                    <p>
-                                        <strong>R$<%=carro.valor_total%></strong>
-                                    </p>
+            <div class="page-container">
+                <main>
+                    <h2>Histórico</h2>
+                    <input type="text" id="search" class="search2" onkeyup="find2()">
+                    <section class="cars-history">
+                        <% values.forEach(function(carro) {%>
+                            <div class="">
+                                <div class="row">
+                                    <div class="content">
+                                        <p>
+                                            <strong>#<%=carro.id_carro%></strong>
+                                        </p>
+                                        <p>
+                                            <%=carro.marca%>
+                                                <%=carro.modelo%> -
+                                                    <%=carro.placa%>
+                                        </p>
+                                        <p>
+                                            <%=carro.hora_entrada%> ~ <%=carro.hora_saida%>
+                                        </p>
+                                        <p>
+                                            <strong>R$<%=carro.valor_total%></strong>
+                                        </p>
 
+                                    </div>
+                                    <div class="hpseks <%=carro.id_carro%>">></div>
                                 </div>
-                                <div class="hpseks <%=carro.id_carro%>">></div>
                             </div>
-                        </div>
-                        <%})%>
-                </section>
-            </main>
+                            <%})%>
+                    </section>
+                </main>
+                <%- include('../../partials/footer.html'); %>
+            </div>
+
             <%- include('../../partials/modalHist.html'); %>
                 <%- include('../../partials/modalConfirma.html'); %>
 
